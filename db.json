@@ -1,0 +1,125 @@
+{
+  "pymes": [ 
+    {
+      "id": 1,
+      "nombre": "Aventuras Caribeñas",
+      "años_xp": 10,
+      "calificacion": 4.7,
+      "descripción": "",
+      "numero": "8888-8888"
+    },
+    {
+      "id": 2,
+      "nombre": "Explora Montañas",
+      "años_xp": 8,
+      "calificacion": 4.5,
+      "descripción": "",
+      "numero": "8888-8888"
+    }
+  ],
+
+
+
+
+  
+  "comentarios": [
+    {
+      "id": 1,
+      "usuario": "Carlos",
+      "contenido": "Excelente experiencia en el tour de snorkel",
+      "fecha": "2025-09-18",
+      "tour": 1,
+      "calificacion": 5
+    },
+    {
+      "id": 2,
+      "usuario": "Ana",
+      "contenido": "Muy organizado, pero un poco cansado",
+      "fecha": "2025-09-17",
+      "tour": 2,
+      "calificacion": 4
+    }
+  ],
+
+
+
+
+
+
+  "solicitudUsuario": [
+    {
+      "id": 1,
+      "tour": 1,
+      "usuario": "María",
+      "telefono": "8888-9999",
+      "correo": "maria@gmail.com",
+      "consulta": "¿Hay descuentos para grupos?"
+    },
+    {
+      "id": 2,
+      "tour": 2,
+      "usuario": "Pedro",
+      "telefono": "7777-6666",
+      "correo": "pedro@hotmail.com",
+      "consulta": "¿Puedo pagar con tarjeta?"
+    }
+  ],
+
+
+
+
+
+
+  "destinos": [
+    {
+      "id": 1,
+      "nombre": "Isla Tortuga",
+      "imagen": "https://www.visitcentroamerica.com/wp-content/uploads/2025/04/Isla-Tortuga-Costa-Rica-05.webp",
+      "descripcion": "Un paraíso tropical famosa por playas de arena blanca, aguas cristalinas y rica vida marina."
+    },
+    {
+      "id": 2,
+      "nombre": "Isla San Lucas",
+      "imagen": "https://radios.ucr.ac.cr/wp-content/uploads/2021/08/2021-08-Simbiosis-PNIslaSanLucas-003-1536x1024.jpg",
+      "descripcion": "Parque Nacional con una historia impresionante"
+    },
+    {
+      "id": 3,
+      "nombre": "Bioluminisencia",
+      "imagen": "https://media.tacdn.com/media/attractions-splice-spp-674x446/11/6c/be/15.jpg",
+      "descripcion": "Embárcate en una experiencia mágica mientras navegas bajo el cielo estrellado"
+    }
+  ],
+
+
+
+
+
+
+  "tours": [
+    {
+      "id": 1,
+      "pymeId": 1,
+      "destinoId": 2,
+      "nombre": "Tour de snorkel en Cahuita",
+      "duracion": "4 horas",
+      "precio": 45,
+      "poliza": "Seguro Básico",
+      "incluye": ["chalecos", "alimentación ligera"],
+      "punto_partida": "Puerto Cahuita",
+      "calificacion": 4.8
+    },
+    {
+      "id": 2,
+      "pymeId": 2,
+      "destinoId": 3,
+      "nombre": "Caminata nocturna en Monteverde",
+      "duracion": "3 horas",
+      "precio": 35,
+      "poliza": "Seguro Básico",
+      "incluye": ["guía especializado", "linterna"],
+      "punto_partida": "Recepción del hotel",
+      "calificacion": 4.6
+    }
+  ]
+}

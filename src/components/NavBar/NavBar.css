@@ -1,0 +1,9 @@
+.carousel-item {
+  height: 500px;            /* caja del slide: altura fija */
+}
+.carousel-item img {
+  width: 100%;
+  height: 100%;             /* ocupa toda la caja del slide */
+  object-fit: cover;        /* recorta la imagen para cubrir la caja */
+  display: block;
+}

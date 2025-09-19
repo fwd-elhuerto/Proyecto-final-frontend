@@ -1,0 +1,11 @@
+.headS{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+    gap: 30px;
+}
+
+.btn{
+    background-color: rgb(229, 86, 24);
+    height: 40px;
+}
