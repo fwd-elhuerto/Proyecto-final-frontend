@@ -52,7 +52,7 @@
   "solicitudUsuario": [
     {
       "id": 1,
-      "tour": 1,
+      "tourId": 1,
       "usuario": "María",
       "telefono": "8888-9999",
       "correo": "maria@gmail.com",
@@ -60,7 +60,7 @@
     },
     {
       "id": 2,
-      "tour": 2,
+      "tourId": 2,
       "usuario": "Pedro",
       "telefono": "7777-6666",
       "correo": "pedro@hotmail.com",
@@ -149,16 +149,19 @@
 
   "emprendedores":[
     {
+      "id": 41,
       "nombre": "Lucía",
       "historia": "Lucía comenzó llevando pequeños grupos a conocer la Isla Tortuga con una sola lancha alquilada. Con el tiempo, sus clientes recomendaron tanto el servicio que pudo comprar su propio bote y ahora ofrece tours completos con snorkel, almuerzo y guías locales.",
       "imagen": "https://thumbs.dreamstime.com/z/una-mujer-en-un-barco-que-se-dirige-la-costa-navegando-mirando-ensenada-sentada-proa-de-lancha-motora-210200551.jpg"
     },
     {
+      "id": 42,
       "nombre": "Javier",
       "historia": "Don Javier creció pescando con su padre en costa de pajaros. Un día decidió compartir esa experiencia con turistas, ofreciendo paseos de pesca artesanal. Hoy, sus excursiones no solo muestran la tradición pesquera, sino que también apoyan a comunidades costeras.",
       "imagen": "https://ballenatourcostarica.com/wp-content/uploads/elementor/thumbs/IMG_20211230_132408-scaled-1-qkgoqh2n347w89y0z9u9kvz9e4jj44k2w8a2mh05qs.webp"
     },
     {
+      "id": 43,
       "nombre": "Miguel",
       "historia": "En medio del mar, entre las lanchas turísticas, aparece Don Miguel en su pequeño bote cargado de piñas. Allí prepara piña coladas frescas y las reparte a los visitantes que disfrutan del sol. Su carisma y su bebida tropical ya son parte de la experiencia en cada tour.",
       "imagen": "https://images.myguide-cdn.com/costarica/companies/isla-tortuga-speedboat-lunch-snorkeling-from-puntarenas/large/isla-tortuga-speedboat-lunch-snorkeling-from-puntarenas-3622247.jpg"

@@ -1,0 +1,33 @@
+.empre_card_horizontal {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.empre_card_horizontal:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+.empre_img_horizontal {
+  width: 100%;
+  height: 100%;
+  max-height: 250px;
+  object-fit: cover;
+}
+
+.empre_titulo {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+.empre_desc {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+  text-align: justify;
+}
