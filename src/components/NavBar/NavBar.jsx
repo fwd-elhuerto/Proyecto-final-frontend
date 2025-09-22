@@ -19,6 +19,7 @@ function Navbar() {
 
   return (
     <div className="container mt-4">
+        <h1>Islas y destinos</h1>
       <Carousel>
         {Destinos.map(destino => (
           <Carousel.Item key={destino.id}>

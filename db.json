@@ -2,19 +2,22 @@
   "pymes": [ 
     {
       "id": 1,
-      "nombre": "Aventuras Caribeñas",
+      "nombre": "MangleTours",
       "años_xp": 10,
       "calificacion": 4.7,
-      "descripción": "",
-      "numero": "8888-8888"
+      "descripcion": "Empresa local especializada en tours por el Golfo de Nicoya, incluyendo Isla Tortuga, Isla San Lucas, Playa Muertos y experiencias de bioluminiscencia. Nuestro enfoque está en el servicio al cliente, siendo su satisfacción nuestra máxima prioridad.",
+      "numero": "8888-8888",
+      "imagen": "https://mangletours.com/wp-content/uploads/2024/05/WhatsApp-Image-2024-03-22-at-2.55.14-PM-Photoroom.png-Photoroom.png"
+
     },
     {
       "id": 2,
-      "nombre": "Explora Montañas",
+      "nombre": "CocosTours",
       "años_xp": 8,
       "calificacion": 4.5,
-      "descripción": "",
-      "numero": "8888-8888"
+      "descripcion": "Cocos Tours nació como complemento a la actividad gastronómica y la conexión ancestral con el mar y la pesca. Fundado sobre los valores de familia, fe, sostenibilidad y honestidad, este emprendimiento busca ofrecer una experiencia de turismo en sintonía con la naturaleza y que refuerce el lazo comunitario.",
+      "imagen": "https://cocostours.cr/wp-content/uploads/2025/03/Untitled-design-e1741223929619.png",
+      "numero": "8876 9354"
     }
   ],
 
@@ -28,7 +31,7 @@
       "usuario": "Carlos",
       "contenido": "Excelente experiencia en el tour de snorkel",
       "fecha": "2025-09-18",
-      "tour": 1,
+      "tour": 31,
       "calificacion": 5
     },
     {
@@ -36,7 +39,7 @@
       "usuario": "Ana",
       "contenido": "Muy organizado, pero un poco cansado",
       "fecha": "2025-09-17",
-      "tour": 2,
+      "tour": 33,
       "calificacion": 4
     }
   ],
@@ -72,19 +75,19 @@
 
   "destinos": [
     {
-      "id": 1,
+      "id": 21,
       "nombre": "Isla Tortuga",
       "imagen": "https://www.visitcentroamerica.com/wp-content/uploads/2025/04/Isla-Tortuga-Costa-Rica-05.webp",
       "descripcion": "Un paraíso tropical famosa por playas de arena blanca, aguas cristalinas y rica vida marina."
     },
     {
-      "id": 2,
+      "id": 22,
       "nombre": "Isla San Lucas",
       "imagen": "https://radios.ucr.ac.cr/wp-content/uploads/2021/08/2021-08-Simbiosis-PNIslaSanLucas-003-1536x1024.jpg",
       "descripcion": "Parque Nacional con una historia impresionante"
     },
     {
-      "id": 3,
+      "id": 23,
       "nombre": "Bioluminisencia",
       "imagen": "https://media.tacdn.com/media/attractions-splice-spp-674x446/11/6c/be/15.jpg",
       "descripcion": "Embárcate en una experiencia mágica mientras navegas bajo el cielo estrellado"
@@ -98,28 +101,80 @@
 
   "tours": [
     {
-      "id": 1,
+      "id": 31,
       "pymeId": 1,
-      "destinoId": 2,
-      "nombre": "Tour de snorkel en Cahuita",
-      "duracion": "4 horas",
-      "precio": 45,
+      "destinoId": 21,
+      "nombre": "Tour isla tortuga y playa muertos",
+      "descripcion": " Este tour te lleva a dos lugares impresionantes donde la naturaleza es abundante y el agua es cristalina.",
+      "duracion": "8 horas",
+      "precio": 37,
       "poliza": "Seguro Básico",
-      "incluye": ["chalecos", "alimentación ligera"],
-      "punto_partida": "Puerto Cahuita",
-      "calificacion": 4.8
+      "incluye": [ "Fruta fresca, almuerzo, café en la tarde, guía turístico bilingüe y certificado, agua embotellada ilimitada.", "Chalecos y botiquín"],
+      "punto_partida": " Puntarenas, Marina, Hotel Puerto Azul.",
+      "calificacion": "4.8/5"
     },
     {
-      "id": 2,
+      "id": 32,
       "pymeId": 2,
-      "destinoId": 3,
-      "nombre": "Caminata nocturna en Monteverde",
-      "duracion": "3 horas",
-      "precio": 35,
+      "destinoId": 22,
+      "nombre": "Tour Parque Nacional Isla San Lucas + Isla Venado + Playa Esmeralda",
+      "descripcion": "Tres destinos por un solo precio: historia, cultura local, buena comida y aguas cristalinas",
+      "duracion": "7 horas 30 min",
+      "precio": 40,
       "poliza": "Seguro Básico",
-      "incluye": ["guía especializado", "linterna"],
-      "punto_partida": "Recepción del hotel",
-      "calificacion": 4.6
+      "incluye": ["Guía especializado, Almuerzo en restaurante flotante, Frutas tropicales, Botellas de agua", "Chalecos"],
+      "punto_partida": "200 metros. oeste del muelle del ferry, Barrio El Carmen, Puntarenas",
+      "calificacion": "4.6/5"
+    },
+    {
+      "id": 33,
+      "pymeId": 2,
+      "destinoId": 23,
+      "nombre": "Tour Bioluminiscencia",
+      "descripcion": "una experiencia mágica mientras navegas bajo el cielo estrellado y descubres cómo el agua cobra vida con destellos de luz natural,",
+      "duracion": "7 horas 30 min",
+      "precio": 30,
+      "poliza": "Seguro Básico",
+      "incluye": ["Guía especializado, Cena, Frutas tropicales, Botellas de agua", "Chalecos"],
+      "punto_partida": "200 metros. oeste del muelle del ferry, Barrio El Carmen, Puntarenas",
+      "calificacion": "3.9/5"
+    }
+  ],
+
+
+
+
+
+
+
+  "emprendedores":[
+    {
+      "nombre": "Lucía",
+      "historia": "Lucía comenzó llevando pequeños grupos a conocer la Isla Tortuga con una sola lancha alquilada. Con el tiempo, sus clientes recomendaron tanto el servicio que pudo comprar su propio bote y ahora ofrece tours completos con snorkel, almuerzo y guías locales.",
+      "imagen": "https://thumbs.dreamstime.com/z/una-mujer-en-un-barco-que-se-dirige-la-costa-navegando-mirando-ensenada-sentada-proa-de-lancha-motora-210200551.jpg"
+    },
+    {
+      "nombre": "Javier",
+      "historia": "Don Javier creció pescando con su padre en costa de pajaros. Un día decidió compartir esa experiencia con turistas, ofreciendo paseos de pesca artesanal. Hoy, sus excursiones no solo muestran la tradición pesquera, sino que también apoyan a comunidades costeras.",
+      "imagen": "https://ballenatourcostarica.com/wp-content/uploads/elementor/thumbs/IMG_20211230_132408-scaled-1-qkgoqh2n347w89y0z9u9kvz9e4jj44k2w8a2mh05qs.webp"
+    },
+    {
+      "nombre": "Miguel",
+      "historia": "En medio del mar, entre las lanchas turísticas, aparece Don Miguel en su pequeño bote cargado de piñas. Allí prepara piña coladas frescas y las reparte a los visitantes que disfrutan del sol. Su carisma y su bebida tropical ya son parte de la experiencia en cada tour.",
+      "imagen": "https://images.myguide-cdn.com/costarica/companies/isla-tortuga-speedboat-lunch-snorkeling-from-puntarenas/large/isla-tortuga-speedboat-lunch-snorkeling-from-puntarenas-3622247.jpg"
+    }
+  ],
+
+
+
+
+
+  "usuarios": [
+    {
+      "id": "1c34",
+      "Nombre": "caleb",
+      "Email": "caleb@gmail.com",
+      "Password": "123456789"
     }
   ]
 }
