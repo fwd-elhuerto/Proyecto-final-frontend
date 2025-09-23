@@ -7,3 +7,6 @@
   object-fit: cover;        /* recorta la imagen para cubrir la caja */
   display: block;
 }
+.btn{
+  color:  rgb(229, 86, 24);
+}

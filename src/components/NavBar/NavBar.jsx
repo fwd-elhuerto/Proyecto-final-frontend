@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
 import ServicesDestinos from '../../services/ServicesDestinos';
 import Carousel from 'react-bootstrap/Carousel';
@@ -7,6 +8,7 @@ import '../NavBar/NavBar.css'
 
 function Navbar() {
   const [Destinos, setDestinos] = useState([])
+  const navegar = useNavigate()
 
   useEffect(() => {
     const traerDestinos = async () => {
@@ -16,6 +18,11 @@ function Navbar() {
     }
     traerDestinos()
   }, [])
+
+  
+  const irADestino = (id) => {  // función para ir a la página de destino
+    navegar(`/destino/${id}`)
+  }
 
   return (
     <div className="container mt-4">
@@ -31,6 +38,9 @@ function Navbar() {
             <Carousel.Caption>
               <h3>{destino.nombre}</h3>
               <p>{destino.descripcion}</p>
+              <button className="btn" onClick={() => irADestino(destino.id)}>
+                Ver tours Disponibles
+              </button>
             </Carousel.Caption>
           </Carousel.Item>
         ))}
