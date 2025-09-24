@@ -7,6 +7,7 @@ function MenuEmprendedor() {
 
     const [Emprendedor, setEmprendedor] = useState([])
     
+    
       useEffect(() => {
         const traerEmprendedor = async () => {
             const datosE = await ServicesEmprendedor.getEmprendedores()

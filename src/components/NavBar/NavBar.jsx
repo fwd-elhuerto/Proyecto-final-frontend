@@ -38,7 +38,7 @@ function Navbar() {
             <Carousel.Caption>
               <h3>{destino.nombre}</h3>
               <p>{destino.descripcion}</p>
-              <button className="btn" onClick={() => irADestino(destino.id)}>
+              <button className="btn-standard" onClick={() => irADestino(destino.id)}>
                 Ver tours Disponibles
               </button>
             </Carousel.Caption>

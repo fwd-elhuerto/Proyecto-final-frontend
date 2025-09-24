@@ -62,17 +62,16 @@
   outline: none;
 }
 
-.buzon_form button {
-  background: #0d6efd;
-  color: white;
+.btn-standard {
+  background-color: rgb(229, 86, 24);
+  color: #fff;
+  font-weight: 600;
   border: none;
-  border-radius: 10px;
-  padding: 0.8rem 1.5rem;
-  font-size: 1rem;
-  cursor: pointer;
-
+  border-radius: 8px;
+  padding: 8px 16px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
-
-.buzon_form button:hover {
-  background: #0b5ed7;
+.btn-standard:hover {
+  background-color: rgb(200, 70, 18);
+  transform: translateY(-2px);
 }

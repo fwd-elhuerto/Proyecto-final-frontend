@@ -137,7 +137,7 @@ function BuzonComentario() {
           size={30}
           activeColor="#ffd700"
         />
-        <button onClick={guardarComentario}>Enviar</button>
+        <button onClick={guardarComentario} className='btn-standard'>Enviar</button>
       </div>
     </div>
   </div>

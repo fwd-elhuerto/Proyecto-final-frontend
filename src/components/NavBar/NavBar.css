@@ -7,6 +7,16 @@
   object-fit: cover;        /* recorta la imagen para cubrir la caja */
   display: block;
 }
-.btn{
-  color:  rgb(229, 86, 24);
+.btn-standard {
+  background-color: rgb(229, 86, 24);
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.btn-standard:hover {
+  background-color: rgb(200, 70, 18);
+  transform: translateY(-2px);
 }

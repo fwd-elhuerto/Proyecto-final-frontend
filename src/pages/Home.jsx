@@ -9,23 +9,32 @@ import BuzonComentario from '../components/BuzonComentario/BuzonComentario'
 
 function Home() {
   return (
-    <div>Home
+    <div>
 
             <Header />
+            <br />
             <Article />
+            <section id='destinos'> {/* usar secciones para poder nagenar en la página */}
             <Navbar />
+            </section>
             <br />
             <br />
+            <section id='empresas'>
             <MenuPymes />
+            </section>
             <br />
             <br />
             <RegisterBar />
             <br />
             <br />
+            <section id='emprendedor'>
             <MenuEmprendedor />
+            </section>
             <br />
             <br />
+            <section id='comentarios'>
             <BuzonComentario />
+            </section>
 
 
     </div>

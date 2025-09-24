@@ -1,8 +1,9 @@
 .headS{
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     width: 100%;
     gap: 30px;
+    background-color: rgb(214, 248, 239);
 }
 
 .btn-standard {

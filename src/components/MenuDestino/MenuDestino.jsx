@@ -8,7 +8,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import '../MenuDestino/MenuDestino.css';
 
 function MenuDestino() {
-const { id } = useParams()
+const { id } = useParams() //traer el id como parametro
 const [destino, setDestino] = useState(null)
 const [ToursTraidos, setToursTraidos] = useState([])
 const [pymeTraidos, setpymeTraidos] = useState([])
@@ -51,6 +51,40 @@ useEffect(() => {
     const pyme = pymeTraidos.find((p) => Number(p.id) === Number(id))
     return pyme ? pyme.nombre : "pyme no encontrado"
   }
+
+  // función para buscar el numero del pyme por id
+  const obtenerNumeroPyme = (id) => {
+    const pyme = pymeTraidos.find((p) => Number(p.id) === Number(id))
+    // Retorna el número sin espacios ni guiones para la URL de WhatsApp
+    return pyme ? pyme.numero.replace(/\s/g, '').replace(/-/g, '') : null;
+  }
+ 
+
+  // función para ir al chat de whatsApp
+  const irAlChat = (tour) => {
+    const numeroPyme = obtenerNumeroPyme(tour.pymeId);
+
+    if (numeroPyme) {
+        // Mensaje predeterminado con el nombre del tour
+        const mensaje = `Hola, me gustaría contratar el "${tour.nombre}".`;
+
+        // Codificar el mensaje para que sea seguro en la URL
+        const mensajeCodificado = encodeURIComponent(mensaje);
+
+        // La URL completa
+        const whatsappUrl = `https://wa.me/${numeroPyme}?text=${mensajeCodificado}`;
+
+        // Abrir el enlace en una nueva pestaña
+        window.open(whatsappUrl, '_blank');
+    } else {
+        // Si no se encuentra el número, muestra un error
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Número de WhatsApp no encontrado para este pyme.',
+        });
+    }
+};
 
 
 
@@ -99,7 +133,7 @@ useEffect(() => {
                 <p className="tour_desc">
                     <strong>A cargo de:</strong> {obtenerNombrePyme(tour.pymeId)}
                 </p>
-                <button className="btn btn-standard mt-2">Contactar</button>
+                <button onClick={() => irAlChat(tour)} className="btn-standard mt-2">Contactar</button>
             </div>
 
             {/* Columna derecha */}
