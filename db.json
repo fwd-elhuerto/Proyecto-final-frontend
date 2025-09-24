@@ -78,19 +78,22 @@
       "id": 21,
       "nombre": "Isla Tortuga",
       "imagen": "https://www.visitcentroamerica.com/wp-content/uploads/2025/04/Isla-Tortuga-Costa-Rica-05.webp",
-      "descripcion": "Un paraíso tropical famosa por playas de arena blanca, aguas cristalinas y rica vida marina."
+      "descripcion": "Un paraíso tropical famosa por playas de arena blanca, aguas cristalinas y rica vida marina.",
+      "otrasImg": ["https://costacatcruises.com/wp-content/uploads/2023/07/Tortuga-Island-from-los-suenos-Costa-Rica.jpg", "https://brazosabiertoscr.com/templates/yootheme/cache/Tour-Isla-totuga-6-a76c7345.jpeg", "https://media.tacdn.com/media/attractions-splice-spp-674x446/06/e1/86/11.jpg"]
     },
     {
       "id": 22,
       "nombre": "Isla San Lucas",
       "imagen": "https://radios.ucr.ac.cr/wp-content/uploads/2021/08/2021-08-Simbiosis-PNIslaSanLucas-003-1536x1024.jpg",
-      "descripcion": "Parque Nacional con una historia impresionante"
+      "descripcion": "Parque Nacional con una historia impresionante",
+      "otrasImg": ["https://cloudfront-us-east-1.images.arcpublishing.com/gruponacion/IXDRC7TLNNAHJEGPXFXTD2TBQA.jpg", "https://wpapi.larepublica.net/wp-content/webp-express/webp-images/doc-root/wp-content/uploads/2021/04/20210402105802.san-lucas.jpg.webp", "https://content-viajes.nationalgeographic.com.es/medio/2020/09/21/isla-san-lucas_8119cc03_1000x749.jpg"]
     },
     {
       "id": 23,
       "nombre": "Bioluminisencia",
       "imagen": "https://media.tacdn.com/media/attractions-splice-spp-674x446/11/6c/be/15.jpg",
-      "descripcion": "Embárcate en una experiencia mágica mientras navegas bajo el cielo estrellado"
+      "descripcion": "Embárcate en una experiencia mágica mientras navegas bajo el cielo estrellado",
+      "otrasImg": ["https://ticaxelmundocr.com/wp-content/uploads/2020/05/Punta-Cuchillo-Foto-derecho-Jos%C3%A9-Mar%C3%ADa-Cantillano.jpeg", "https://media.hoy.cr/wp-content/uploads/2017/05/Tour-Bioluminicencia-18.jpg", "https://media.hoy.cr/wp-content/uploads/2017/05/Tour-Bioluminicencia-20.jpg"]
     }
   ],
 
@@ -107,9 +110,9 @@
       "nombre": "Tour isla tortuga y playa muertos",
       "descripcion": " Este tour te lleva a dos lugares impresionantes donde la naturaleza es abundante y el agua es cristalina.",
       "duracion": "8 horas",
-      "precio": 37,
+      "precio": 37000,
       "poliza": "Seguro Básico",
-      "incluye": [ "Fruta fresca, almuerzo, café en la tarde, guía turístico bilingüe y certificado, agua embotellada ilimitada.", "Chalecos y botiquín"],
+      "incluye": [ "Fruta fresca, almuerzo, café en la tarde, guía turístico bilingüe y certificado, agua embotellada ilimitada. ", "Chalecos y botiquín"],
       "punto_partida": " Puntarenas, Marina, Hotel Puerto Azul.",
       "calificacion": "4.8/5"
     },
@@ -120,9 +123,9 @@
       "nombre": "Tour Parque Nacional Isla San Lucas + Isla Venado + Playa Esmeralda",
       "descripcion": "Tres destinos por un solo precio: historia, cultura local, buena comida y aguas cristalinas",
       "duracion": "7 horas 30 min",
-      "precio": 40,
+      "precio": 40000,
       "poliza": "Seguro Básico",
-      "incluye": ["Guía especializado, Almuerzo en restaurante flotante, Frutas tropicales, Botellas de agua", "Chalecos"],
+      "incluye": ["Guía especializado, Almuerzo en restaurante flotante, Frutas tropicales, Botellas de agua ", "Chalecos"],
       "punto_partida": "200 metros. oeste del muelle del ferry, Barrio El Carmen, Puntarenas",
       "calificacion": "4.6/5"
     },
@@ -131,11 +134,11 @@
       "pymeId": 2,
       "destinoId": 23,
       "nombre": "Tour Bioluminiscencia",
-      "descripcion": "una experiencia mágica mientras navegas bajo el cielo estrellado y descubres cómo el agua cobra vida con destellos de luz natural,",
+      "descripcion": "Una experiencia mágica mientras navegas bajo el cielo estrellado y descubres cómo el agua cobra vida con destellos de luz natural,",
       "duracion": "7 horas 30 min",
-      "precio": 30,
+      "precio": 300000,
       "poliza": "Seguro Básico",
-      "incluye": ["Guía especializado, Cena, Frutas tropicales, Botellas de agua", "Chalecos"],
+      "incluye": ["Guía especializado, Cena, Frutas tropicales, Botellas de agua ","Chalecos"],
       "punto_partida": "200 metros. oeste del muelle del ferry, Barrio El Carmen, Puntarenas",
       "calificacion": "3.9/5"
     }

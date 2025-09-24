@@ -21,7 +21,7 @@ function Navbar() {
 
   
   const irADestino = (id) => {  // función para ir a la página de destino
-    navegar(`/destino/${id}`)
+    navegar(`/destination/${id}`)
   }
 
   return (

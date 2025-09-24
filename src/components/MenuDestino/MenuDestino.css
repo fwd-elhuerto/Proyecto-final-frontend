@@ -1,0 +1,55 @@
+.tour_card_horizontal {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tour_card_horizontal:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+.tour_titulo {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #2c3e50;
+  text-align: center;
+}
+
+.tour_desc {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.tour_list li {
+  padding: 6px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 0.95rem;
+}
+
+.tour_list li:last-child {
+  border-bottom: none;
+}
+
+.tour_card_horizontal button {
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: 8px;
+}
+.btn-standard {
+  background-color: rgb(229, 86, 24);
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.btn-standard:hover {
+  background-color: rgb(200, 70, 18);
+  transform: translateY(-2px);
+}
