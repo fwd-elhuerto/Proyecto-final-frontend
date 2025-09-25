@@ -10,6 +10,7 @@ function Article() {
     <div >
 
         <div className='heroBanner'>
+            <img src="\Article\hero.png" alt="" />
             <h1>Descubre la belleza de las islas porteñas con guias locales</h1>
             <p>Encuentra destinos, tours, conoce emprendedores y mas</p>
         </div>

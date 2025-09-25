@@ -6,7 +6,7 @@ function RegisterBar() {
     const navegar = useNavigate()
 
     const RegistrarPyme = () => {
-        navegar("/RegisterPyme")
+        navegar("/SessionManager")
     }
 
 

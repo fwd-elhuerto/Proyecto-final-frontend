@@ -1,33 +1,32 @@
 {
-  "pymes": [ 
+  "pymes": [
     {
-      "id": 1,
+      "id": "1",
       "nombre": "MangleTours",
-      "años_xp": 10,
+      "anhos_xp": 10,
       "calificacion": 4.7,
       "descripcion": "Empresa local especializada en tours por el Golfo de Nicoya, incluyendo Isla Tortuga, Isla San Lucas, Playa Muertos y experiencias de bioluminiscencia. Nuestro enfoque está en el servicio al cliente, siendo su satisfacción nuestra máxima prioridad.",
       "numero": "7136-8327",
-      "imagen": "https://mangletours.com/wp-content/uploads/2024/05/WhatsApp-Image-2024-03-22-at-2.55.14-PM-Photoroom.png-Photoroom.png"
-
+      "imagen": "https://mangletours.com/wp-content/uploads/2024/05/WhatsApp-Image-2024-03-22-at-2.55.14-PM-Photoroom.png-Photoroom.png",
+      "Password": "123456789"
     },
     {
-      "id": 2,
+      "id": "2",
       "nombre": "CocosTours",
-      "años_xp": 8,
+      "anhos_xp": 8,
       "calificacion": 4.5,
       "descripcion": "Cocos Tours nació como complemento a la actividad gastronómica y la conexión ancestral con el mar y la pesca. Fundado sobre los valores de familia, fe, sostenibilidad y honestidad, este emprendimiento busca ofrecer una experiencia de turismo en sintonía con la naturaleza y que refuerce el lazo comunitario.",
       "imagen": "https://cocostours.cr/wp-content/uploads/2025/03/Untitled-design-e1741223929619.png",
-      "numero": "8876 9354"
+      "numero": "8876 9354",
+      "Password": "123456789"
     }
   ],
 
 
 
-
-  
   "comentarios": [
     {
-      "id": 1,
+      "id": "1",
       "usuario": "Carlos",
       "contenido": "Excelente experiencia en el tour de snorkel",
       "fecha": "2025-09-18",
@@ -35,7 +34,7 @@
       "calificacion": 5
     },
     {
-      "id": 2,
+      "id": "2",
       "usuario": "Ana",
       "contenido": "Muy organizado, pero un poco cansado",
       "fecha": "2025-09-17",
@@ -43,15 +42,9 @@
       "calificacion": 4
     }
   ],
-
-
-
-
-
-
   "solicitudUsuario": [
     {
-      "id": 1,
+      "id": "1",
       "tourId": 1,
       "usuario": "María",
       "telefono": "8888-9999",
@@ -59,7 +52,7 @@
       "consulta": "¿Hay descuentos para grupos?"
     },
     {
-      "id": 2,
+      "id": "2",
       "tourId": 2,
       "usuario": "Pedro",
       "telefono": "7777-6666",
@@ -67,44 +60,47 @@
       "consulta": "¿Puedo pagar con tarjeta?"
     }
   ],
-
-
-
-
-
-
   "destinos": [
     {
-      "id": 21,
+      "id": "21",
       "nombre": "Isla Tortuga",
       "imagen": "https://www.visitcentroamerica.com/wp-content/uploads/2025/04/Isla-Tortuga-Costa-Rica-05.webp",
       "descripcion": "Un paraíso tropical famosa por playas de arena blanca, aguas cristalinas y rica vida marina.",
-      "otrasImg": ["https://costacatcruises.com/wp-content/uploads/2023/07/Tortuga-Island-from-los-suenos-Costa-Rica.jpg", "https://brazosabiertoscr.com/templates/yootheme/cache/Tour-Isla-totuga-6-a76c7345.jpeg", "https://media.tacdn.com/media/attractions-splice-spp-674x446/06/e1/86/11.jpg"]
+      "otrasImg": [
+        "https://costacatcruises.com/wp-content/uploads/2023/07/Tortuga-Island-from-los-suenos-Costa-Rica.jpg",
+        "https://brazosabiertoscr.com/templates/yootheme/cache/Tour-Isla-totuga-6-a76c7345.jpeg",
+        "https://media.tacdn.com/media/attractions-splice-spp-674x446/06/e1/86/11.jpg"
+      ]
     },
     {
-      "id": 22,
+      "id": "22",
       "nombre": "Isla San Lucas",
       "imagen": "https://radios.ucr.ac.cr/wp-content/uploads/2021/08/2021-08-Simbiosis-PNIslaSanLucas-003-1536x1024.jpg",
       "descripcion": "Parque Nacional con una historia impresionante",
-      "otrasImg": ["https://cloudfront-us-east-1.images.arcpublishing.com/gruponacion/IXDRC7TLNNAHJEGPXFXTD2TBQA.jpg", "https://wpapi.larepublica.net/wp-content/webp-express/webp-images/doc-root/wp-content/uploads/2021/04/20210402105802.san-lucas.jpg.webp", "https://content-viajes.nationalgeographic.com.es/medio/2020/09/21/isla-san-lucas_8119cc03_1000x749.jpg"]
+      "otrasImg": [
+        "https://cloudfront-us-east-1.images.arcpublishing.com/gruponacion/IXDRC7TLNNAHJEGPXFXTD2TBQA.jpg",
+        "https://wpapi.larepublica.net/wp-content/webp-express/webp-images/doc-root/wp-content/uploads/2021/04/20210402105802.san-lucas.jpg.webp",
+        "https://content-viajes.nationalgeographic.com.es/medio/2020/09/21/isla-san-lucas_8119cc03_1000x749.jpg"
+      ]
     },
     {
-      "id": 23,
+      "id": "23",
       "nombre": "Bioluminisencia",
       "imagen": "https://media.tacdn.com/media/attractions-splice-spp-674x446/11/6c/be/15.jpg",
       "descripcion": "Embárcate en una experiencia mágica mientras navegas bajo el cielo estrellado",
-      "otrasImg": ["https://ticaxelmundocr.com/wp-content/uploads/2020/05/Punta-Cuchillo-Foto-derecho-Jos%C3%A9-Mar%C3%ADa-Cantillano.jpeg", "https://media.hoy.cr/wp-content/uploads/2017/05/Tour-Bioluminicencia-18.jpg", "https://media.hoy.cr/wp-content/uploads/2017/05/Tour-Bioluminicencia-20.jpg"]
+      "otrasImg": [
+        "https://ticaxelmundocr.com/wp-content/uploads/2020/05/Punta-Cuchillo-Foto-derecho-Jos%C3%A9-Mar%C3%ADa-Cantillano.jpeg",
+        "https://media.hoy.cr/wp-content/uploads/2017/05/Tour-Bioluminicencia-18.jpg",
+        "https://media.hoy.cr/wp-content/uploads/2017/05/Tour-Bioluminicencia-20.jpg"
+      ]
     }
   ],
 
 
 
-
-
-
   "tours": [
     {
-      "id": 31,
+      "id": "31",
       "pymeId": 1,
       "destinoId": 21,
       "nombre": "Tour isla tortuga y playa muertos",
@@ -112,12 +108,15 @@
       "duracion": "8 horas",
       "precio": 37000,
       "poliza": "Seguro Básico",
-      "incluye": [ "Fruta fresca, almuerzo, café en la tarde, guía turístico bilingüe y certificado, agua embotellada ilimitada. ", "Chalecos y botiquín"],
+      "incluye": [
+        "Fruta fresca, almuerzo, café en la tarde, guía turístico bilingüe y certificado, agua embotellada ilimitada. ",
+        "Chalecos y botiquín"
+      ],
       "punto_partida": " Puntarenas, Marina, Hotel Puerto Azul.",
       "calificacion": "4.8/5"
     },
     {
-      "id": 32,
+      "id": "32",
       "pymeId": 2,
       "destinoId": 22,
       "nombre": "Tour Parque Nacional Isla San Lucas + Isla Venado + Playa Esmeralda",
@@ -125,12 +124,15 @@
       "duracion": "7 horas 30 min",
       "precio": 40000,
       "poliza": "Seguro Básico",
-      "incluye": ["Guía especializado, Almuerzo en restaurante flotante, Frutas tropicales, Botellas de agua ", "Chalecos"],
+      "incluye": [
+        "Guía especializado, Almuerzo en restaurante flotante, Frutas tropicales, Botellas de agua ",
+        "Chalecos"
+      ],
       "punto_partida": "200 metros. oeste del muelle del ferry, Barrio El Carmen, Puntarenas",
       "calificacion": "4.6/5"
     },
     {
-      "id": 33,
+      "id": "33",
       "pymeId": 2,
       "destinoId": 23,
       "nombre": "Tour Bioluminiscencia",
@@ -138,48 +140,45 @@
       "duracion": "7 horas 30 min",
       "precio": 300000,
       "poliza": "Seguro Básico",
-      "incluye": ["Guía especializado, Cena, Frutas tropicales, Botellas de agua ","Chalecos"],
+      "incluye": [
+        "Guía especializado, Cena, Frutas tropicales, Botellas de agua ",
+        "Chalecos"
+      ],
       "punto_partida": "200 metros. oeste del muelle del ferry, Barrio El Carmen, Puntarenas",
       "calificacion": "3.9/5"
     }
   ],
-
-
-
-
-
-
-
-  "emprendedores":[
+  "emprendedores": [
     {
-      "id": 41,
+      "id": "41",
       "nombre": "Lucía",
       "historia": "Lucía comenzó llevando pequeños grupos a conocer la Isla Tortuga con una sola lancha alquilada. Con el tiempo, sus clientes recomendaron tanto el servicio que pudo comprar su propio bote y ahora ofrece tours completos con snorkel, almuerzo y guías locales.",
       "imagen": "https://thumbs.dreamstime.com/z/una-mujer-en-un-barco-que-se-dirige-la-costa-navegando-mirando-ensenada-sentada-proa-de-lancha-motora-210200551.jpg"
     },
     {
-      "id": 42,
+      "id": "42",
       "nombre": "Javier",
       "historia": "Don Javier creció pescando con su padre en costa de pajaros. Un día decidió compartir esa experiencia con turistas, ofreciendo paseos de pesca artesanal. Hoy, sus excursiones no solo muestran la tradición pesquera, sino que también apoyan a comunidades costeras.",
       "imagen": "https://ballenatourcostarica.com/wp-content/uploads/elementor/thumbs/IMG_20211230_132408-scaled-1-qkgoqh2n347w89y0z9u9kvz9e4jj44k2w8a2mh05qs.webp"
     },
     {
-      "id": 43,
+      "id": "43",
       "nombre": "Miguel",
       "historia": "En medio del mar, entre las lanchas turísticas, aparece Don Miguel en su pequeño bote cargado de piñas. Allí prepara piña coladas frescas y las reparte a los visitantes que disfrutan del sol. Su carisma y su bebida tropical ya son parte de la experiencia en cada tour.",
       "imagen": "https://images.myguide-cdn.com/costarica/companies/isla-tortuga-speedboat-lunch-snorkeling-from-puntarenas/large/isla-tortuga-speedboat-lunch-snorkeling-from-puntarenas-3622247.jpg"
     }
   ],
-
-
-
-
-
   "usuarios": [
     {
       "id": "1c34",
       "Nombre": "caleb",
       "Email": "caleb@gmail.com",
+      "Password": "123456789"
+    },
+    {
+      "id": "357b",
+      "Nombre": "fio",
+      "Email": "fio@gmail.com",
       "Password": "123456789"
     }
   ]
