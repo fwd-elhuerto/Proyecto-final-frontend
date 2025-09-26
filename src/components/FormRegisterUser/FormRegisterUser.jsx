@@ -10,7 +10,7 @@ function FormRegisterUser() {
 const [Nombre, setNombre]=useState("")
 const [Email, setEmail]=useState("") 
 const [Password, setPassword]=useState("")
-const datosUser = {Nombre, Email, Password}
+const datosUser = {Nombre, Email, Password, tipoUsuario: "cliente"}
 const [Password2, setPassword2]=useState("")
 const [Users, setUsers] = useState([])
 

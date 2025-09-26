@@ -44,7 +44,7 @@ function MenuPymes() {
       .replace(/-/g, '')
 
     if (numero) {
-      const mensaje = `Hola, me gustaría contratar el "${tour.nombre}".`
+      const mensaje = `Hola, me gustaría contratar el "${tour.Nombre}".`
       const whatsappUrl = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`
       window.open(whatsappUrl, '_blank')
     } else {
@@ -62,8 +62,8 @@ function MenuPymes() {
         {Pymes.map((pyme) => (
           <div key={pyme.id} className="col-md-4 col-sm-6 mb-4">
             <div className="pyme_card">
-              <img src={pyme.imagen} alt={pyme.nombre} className="pyme_img" />
-              <h3 className="pyme_titulo">{pyme.nombre}</h3>
+              <img src={pyme.imagen} alt={pyme.Nombre} className="pyme_img" />
+              <h3 className="pyme_titulo">{pyme.Nombre}</h3>
               <p className="pyme_desc">{pyme.descripcion}</p>
               <button 
                 className='btn-standard' 
@@ -80,7 +80,7 @@ function MenuPymes() {
       <Modal show={showModal} onHide={() => setShowModal(false)} size="lg" centered>
         <Modal.Header closeButton>
           <Modal.Title>
-            Tours de {pymeSeleccionada?.nombre}
+            Tours de {pymeSeleccionada?.Nombre}
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -88,7 +88,7 @@ function MenuPymes() {
             Tours.filter(t => Number(t.pymeId) === Number(pymeSeleccionada.id)).length > 0 ? (
               Tours.filter(t => Number(t.pymeId) === Number(pymeSeleccionada.id)).map((tour) => (
                 <div key={tour.id} className="mb-3 p-3 border rounded">
-                  <h5>{tour.nombre}</h5>
+                  <h5>{tour.Nombre}</h5>
                   <p>{tour.descripcion}</p>
                   <p><strong>Duración:</strong> {tour.duracion}</p>
                   <p><strong>Precio:</strong> ₡{tour.precio}</p>

@@ -1,5 +1,6 @@
 import React from 'react'
 import '../Article/Article.css'
+import banner from '../Article/hero.png'
 
 
 function Article() {
@@ -9,10 +10,11 @@ function Article() {
   return (
     <div >
 
-        <div className='heroBanner'>
-            <img src="\Article\hero.png" alt="" />
+        <div className='heroBanner text-wa'>
             <h1>Descubre la belleza de las islas porteñas con guias locales</h1>
             <p>Encuentra destinos, tours, conoce emprendedores y mas</p>
+            <img className='banner' src={banner} alt="" />
+           
         </div>
 
         <div>
