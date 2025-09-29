@@ -7,7 +7,9 @@
       "calificacion": 4.7,
       "descripcion": "Empresa local especializada en tours por el Golfo de Nicoya, incluyendo Isla Tortuga, Isla San Lucas, Playa Muertos y experiencias de bioluminiscencia. Nuestro enfoque está en el servicio al cliente, siendo su satisfacción nuestra máxima prioridad.",
       "numero": "7136-8327",
-      "imagen": "https://mangletours.com/wp-content/uploads/2024/05/WhatsApp-Image-2024-03-22-at-2.55.14-PM-Photoroom.png-Photoroom.png"
+      "imagen": "https://mangletours.com/wp-content/uploads/2024/05/WhatsApp-Image-2024-03-22-at-2.55.14-PM-Photoroom.png-Photoroom.png",
+      "Email": "mangletours@pyme.com",
+      "Password": "123456789"
     },
     {
       "id": "2",
@@ -16,7 +18,9 @@
       "calificacion": 4.5,
       "descripcion": "Cocos Tours nació como complemento a la actividad gastronómica y la conexión ancestral con el mar y la pesca. Fundado sobre los valores de familia, fe, sostenibilidad y honestidad, este emprendimiento busca ofrecer una experiencia de turismo en sintonía con la naturaleza y que refuerce el lazo comunitario.",
       "numero": "8876-9354",
-      "imagen": "https://cocostours.cr/wp-content/uploads/2025/03/Untitled-design-e1741223929619.png"
+      "imagen": "https://cocostours.cr/wp-content/uploads/2025/03/Untitled-design-e1741223929619.png",
+      "Email": "cocostours@pyme.com",
+      "Password": "123456789"
     },
     {
       "id": "0d71",
@@ -24,7 +28,9 @@
       "anhos_xp": "15",
       "descripcion": "Especialistas en vacaciones ofrecemos: alojamiento, tours, alquiler de vehículos y mas",
       "numero": "83368686",
-      "imagen": "https://res.cloudinary.com/de6vndqlu/image/upload/v1758901311/kr7rdazk1kyxeku9qtem.png"
+      "imagen": "https://res.cloudinary.com/de6vndqlu/image/upload/v1758901311/kr7rdazk1kyxeku9qtem.png",
+      "Email": "naturatours@pyme.com",
+      "Password": "123456789"
     },
     {
       "id": "d0c8",
@@ -32,7 +38,9 @@
       "anhos_xp": "1",
       "descripcion": "secuestramos las personas que contratan nuestros tours",
       "numero": "6207-1398",
-      "imagen": "https://res.cloudinary.com/de6vndqlu/image/upload/v1758903987/ixig5qgbot0d4jfbiodm.jpg"
+      "imagen": "https://res.cloudinary.com/de6vndqlu/image/upload/v1758903987/ixig5qgbot0d4jfbiodm.jpg",
+      "Email": "zetas@pyme.com",
+      "Password": "123456789"
     },
     {
       "id": "877a",
@@ -40,7 +48,9 @@
       "anhos_xp": "5",
       "descripcion": "frye dh3hbed dhgtnj dgnneddje dzzgzejtz dznne dgnnd",
       "numero": "6893-8369",
-      "imagen": "https://res.cloudinary.com/de6vndqlu/image/upload/v1759117379/s6bivpl1f92viko0qzhl.png"
+      "imagen": "https://res.cloudinary.com/de6vndqlu/image/upload/v1759117379/s6bivpl1f92viko0qzhl.png",
+      "Email": "costa@gamail.com",
+      "Password": "123456789"
     }
   ],
   "comentarios": [
@@ -59,12 +69,19 @@
       "fecha": "2025-09-17",
       "tour": 33,
       "calificacion": 4
+    },
+    {
+      "id": "b9c2",
+      "contenido": "hola",
+      "fecha": "29/9/2025, 9:44:44 a. m.",
+      "tour": 32,
+      "calificacion": 3.5
     }
   ],
   "solicitudUsuario": [
     {
       "id": "1",
-      "tourId": 1,
+      "tourId": "1",
       "usuario": "María",
       "telefono": "8888-9999",
       "correo": "maria@gmail.com",
@@ -72,7 +89,7 @@
     },
     {
       "id": "2",
-      "tourId": 2,
+      "tourId": "2",
       "usuario": "Pedro",
       "telefono": "7777-6666",
       "correo": "pedro@hotmail.com",
@@ -117,8 +134,8 @@
   "tours": [
     {
       "id": "31",
-      "pymeId": 1,
-      "destinoId": 21,
+      "pymeId": "1",
+      "destinoId": "21",
       "nombre": "Tour isla tortuga y playa muertos",
       "descripcion": " Este tour te lleva a dos lugares impresionantes donde la naturaleza es abundante y el agua es cristalina.",
       "duracion": "8 horas",
@@ -133,15 +150,18 @@
     },
     {
       "id": "32",
-      "pymeId": "a2b3",
-      "destinoId": 22,
+      "pymeId": "2",
+      "destinoId": "22",
       "nombre": "Tour Parque Nacional Isla San Lucas + Isla Venado + Playa Esmeralda",
       "descripcion": "Tres destinos por un solo precio: historia, cultura local, buena comida y aguas cristalinas",
       "duracion": "7 horas 30 min",
       "precio": 40000,
-      "poliza": "Seguro Básico",
+      "poliza": "Seguro Premium ",
       "incluye": [
-        "Guía especializado, Almuerzo en restaurante flotante, Frutas tropicales, Botellas de agua ",
+        "Guía especializado",
+        "Almuerzo en restaurante flotante",
+        "Frutas tropicales",
+        "Botellas de agua",
         "Chalecos"
       ],
       "punto_partida": "200 metros. oeste del muelle del ferry, Barrio El Carmen, Puntarenas",
@@ -149,15 +169,18 @@
     },
     {
       "id": "33",
-      "pymeId": "a2b3",
-      "destinoId": 23,
+      "pymeId": "2",
+      "destinoId": "23",
       "nombre": "Tour Bioluminiscencia",
       "descripcion": "Una experiencia mágica mientras navegas bajo el cielo estrellado y descubres cómo el agua cobra vida con destellos de luz natural,",
       "duracion": "7 horas 30 min",
       "precio": 300000,
-      "poliza": "Seguro Básico",
+      "poliza": "Seguro Base",
       "incluye": [
-        "Guía especializado, Cena, Frutas tropicales, Botellas de agua ",
+        "Guía especializado",
+        "Cena",
+        "Frutas tropicales",
+        "Botellas de agua",
         "Chalecos"
       ],
       "punto_partida": "200 metros. oeste del muelle del ferry, Barrio El Carmen, Puntarenas",
@@ -205,41 +228,6 @@
       "Email": "luis@gmail.com",
       "Password": "123456789",
       "tipoUsuario": "cliente"
-    },
-    {
-      "id": "cf4e",
-      "Nombre": "CostaTours",
-      "Email": "costa@gamail.com",
-      "Password": "123456789",
-      "tipoUsuario": "pyme"
-    },
-    {
-      "id": "a1b2",
-      "Nombre": "MangleTours",
-      "Email": "mangletours@pyme.com",
-      "Password": "123456789",
-      "tipoUsuario": "pyme"
-    },
-    {
-      "id": "a2b3",
-      "Nombre": "CocosTours",
-      "Email": "cocostours@pyme.com",
-      "Password": "123456789",
-      "tipoUsuario": "pyme"
-    },
-    {
-      "id": "a3b4",
-      "Nombre": "NaturaTours",
-      "Email": "naturatours@pyme.com",
-      "Password": "123456789",
-      "tipoUsuario": "pyme"
-    },
-    {
-      "id": "a4b5",
-      "Nombre": "zetas",
-      "Email": "zetas@pyme.com",
-      "Password": "123456789",
-      "tipoUsuario": "pyme"
     }
   ]
 }

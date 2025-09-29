@@ -4,6 +4,7 @@ import { Link, useNavigate} from 'react-router-dom'
 import ServicesPymes from '../../services/ServicesPymes'
 import ServicesUser from '../../services/ServicesUser'
 import Swal from 'sweetalert2'
+import '../FormRegisterpyme/FormRegisterPyme.css'
 
 function FormRegisterPyme() {
 const [Nombre, setNombre]=useState("")
@@ -66,11 +67,8 @@ const navegar = useNavigate()
         urlImagen = await subirImagen(imagen);
         }
 
-        const datosPymes = { Nombre, anhos_xp, descripcion, numero, imagen: urlImagen};//objeto con propiedades de la empresa
+        const datosPymes = { Nombre, anhos_xp, descripcion, numero, imagen: urlImagen, Email, Password};//objeto con propiedades de la empresa
         await ServicesPymes.postPymes(datosPymes);
-
-        const datosUser = {Nombre, Email, Password, tipoUsuario: "pyme"} // segundo objeto para guardar el usurio con tipo pyme
-        await ServicesUser.postUsuarios(datosUser)
         Swal.fire('¡Registro Exitoso!', 'El pyme ha sido registrado correctamente.', 'success');
         navegar("/Home"); 
     };
@@ -98,7 +96,9 @@ const navegar = useNavigate()
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
   return (
-    <div>
+    <div className='bloque'>
+            <h3>¡Cominenza tu aventura como pyme!</h3>
+
             <label htmlFor="Nombre">Nombre:</label>
             <br />
             <input type="text" placeholder='Nombre' value={Nombre} onChange={(e)=> setNombre(e.target.value)} />
@@ -112,19 +112,19 @@ const navegar = useNavigate()
             <label htmlFor="descripcion">Descripción:</label>
             <br />
             <textarea placeholder='¿Quienes son?' value={descripcion} onChange={(e)=> setDescripcion(e.target.value)} />
-            <p className="text-muted">Una breve explicación sobre su negocio y la historia de este.</p>
+            <p className="text-warning">Una breve explicación sobre su negocio y la historia de este.</p>
             
 
             <label htmlFor="numero">Numero de contacto:</label>
             <br />
             <input type="tel" placeholder='8888-8888' value={numero} onChange={(e)=> setNumero(e.target.value)} /> <br />
-            <p className="text-muted">Su número servirá como contacto directo con los clientes.</p>
+            <p className="text-warning">Su número servirá como contacto directo con los clientes.</p>
             
 
             <label htmlFor="imagen">Logo de su negocio:</label>
             <br />
             <input type="file" accept="image/*"onChange={(e)=> setImagen(e.target.files[0])} />
-            <p className="text-muted">En caso de no tener logo puede subir una foto de su lancha, equipo o personal de trabajo.</p>
+            <p className="text-warning">En caso de no tener logo puede subir una foto de su lancha, equipo o personal de trabajo.</p>
 
             <label htmlFor="Email">Correo electrónico</label>
             <br />
@@ -133,11 +133,11 @@ const navegar = useNavigate()
             <label htmlFor="Pasword">Contraseña:</label>
             <br />
             <input type="password" placeholder='*********' value={Password} onChange={(e)=> setPassword(e.target.value)} />
-            <p className="text-muted">La contraseña debe ser mayor a 8 caracteres.</p>
+            <p className="text-warning">La contraseña debe ser mayor a 8 caracteres.</p>
 
             <label htmlFor="Pasword">Confirmar contraseña:</label>
             <br />
-            <input type="password" placeholder='*********' value={Password2} onChange={(e)=> setPassword2(e.target.value)} /> <br />
+            <input type="password" placeholder='*********' value={Password2} onChange={(e)=> setPassword2(e.target.value)} /> <br /><br />
 
              <button onClick={CargarPymes} className='btn-standard'>Registrar pyme</button><br />
 

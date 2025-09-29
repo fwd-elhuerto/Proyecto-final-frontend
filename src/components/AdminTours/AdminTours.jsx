@@ -14,7 +14,19 @@ function AdminTours() {
     const [destinoId, setDestinoId] = useState('');
     const usuarioLogueado = JSON.parse(sessionStorage.getItem("usuarioLogueado"));
     const [destinos, setDestinos] = useState([])
+    const [Tours, setTours] = useState([]);
 
+
+     useEffect(() => {
+         const traerTours = async () => {
+           const datosT = await ServicesTours.getTours();
+           const toursPyme = datosT.filter(
+             (t => t.pymeId === usuarioLogueado.id)
+           );
+           setTours(toursPyme);
+         };
+         traerTours();
+       }, [usuarioLogueado.id]);
 
     // Carga de destinos para el select
     useEffect(() => {
@@ -33,14 +45,14 @@ function AdminTours() {
             Swal.fire("Error", "Por favor, complete todos los campos obligatorios.", "error");
             return;
         }
-
+        
         // Convertir la lista de "incluye" de string a array de strings
         const itemsIncluidos = incluye.split(',').map(item => item.trim());
 
 
         const nuevoTour = {
             pymeId: usuarioLogueado.id, 
-            destinoId: Number(destinoId), // Convertir a número para que coincida con tu db.json
+            destinoId: (destinoId),
             nombre,
             descripcion,
             duracion,
@@ -51,8 +63,7 @@ function AdminTours() {
             calificacion: ""
             };
 
-        
-            await ServicesTours.postTour(nuevoTour);
+            const tourRegistrado = await ServicesTours.postTour(nuevoTour);
             Swal.fire('¡Éxito!', 'El tour ha sido registrado correctamente.', 'success');
             
             //resetear el formulario

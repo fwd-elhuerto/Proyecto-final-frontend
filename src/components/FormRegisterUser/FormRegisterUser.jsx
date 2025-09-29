@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import { Link, useNavigate} from 'react-router-dom'
 import ServicesUser from '../../services/ServicesUser'
 import Swal from 'sweetalert2'
+import '../FormRegisterUser/FormRegisterUser.css'
 
 function FormRegisterUser() {
 
@@ -46,24 +47,25 @@ const [Users, setUsers] = useState([])
 
 
   return (
-    <div className='register'>
+    <div className='bloque'>
+      <h3>¡Registrate como viajero!</h3>
         <div className='formRStyle'>
-            <label htmlFor="Nombre">Nombre</label>
+            <label htmlFor="Nombre">Nombre:</label>
             <br />
-            <input type="text" placeholder='Nombre' value={Nombre} onChange={(e)=> setNombre(e.target.value)} />
+            <input type="text" placeholder='Ejemplo' value={Nombre} onChange={(e)=> setNombre(e.target.value)} />
             <br />
-            <label htmlFor="Email">Correo electrónico</label>
+            <label htmlFor="Email">Correo electrónico:</label>
             <br />
-            <input type="email" placeholder='Correo electrónico' value={Email} onChange={(e)=> setEmail(e.target.value)} />
+            <input type="email" placeholder='Ejemplo@gmail.com' value={Email} onChange={(e)=> setEmail(e.target.value)} />
             <br />
-            <label htmlFor="Pasword">Contraseña</label>
+            <label htmlFor="Pasword">Contraseña:</label>
             <br />
-            <input type="password" placeholder='Contraseña' value={Password} onChange={(e)=> setPassword(e.target.value)} />
+            <input type="password" placeholder='*********' value={Password} onChange={(e)=> setPassword(e.target.value)} />
             <br />
-            <label htmlFor="Pasword">Confirmar contraseña</label>
+            <label htmlFor="Pasword">Confirmar contraseña:</label>
             <br />
-            <input type="password" placeholder='Contraseña' value={Password2} onChange={(e)=> setPassword2(e.target.value)} /> <br />
-             <button onClick={CargarDatos} className='btn-standard'>Registrarse</button><br />
+            <input type="password" placeholder='*********' value={Password2} onChange={(e)=> setPassword2(e.target.value)} /> <br /> <br />
+             <button onClick={CargarDatos} className='btn-standard'>Registrarse:</button><br />
              
             
         </div>

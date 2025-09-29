@@ -18,7 +18,7 @@ useEffect(() => {
  const traerTours = async () => {
       const datosT = await ServicesTours.getTours()
       
-      const tourFiltrado = datosT.filter((dT) =>  Number(dT.destinoId) === Number(id))
+      const tourFiltrado = datosT.filter((dT) =>  dT.destinoId === id)
       console.log(tourFiltrado);
       
       setToursTraidos(tourFiltrado) //setear tours filtrados
@@ -48,13 +48,15 @@ useEffect(() => {
 
  // función para buscar el nombre del pyme por id
   const obtenerNombrePyme = (id) => {
-    const pyme = pymeTraidos.find((p) => Number(p.id) === Number(id))
-    return pyme ? pyme.nombre : "pyme no encontrado"
+    console.log(id);
+    
+    const pyme = pymeTraidos.find((p) => p.id === id)
+    return pyme ? pyme.Nombre : "pyme no encontrado"
   }
 
   // función para buscar el numero del pyme por id
   const obtenerNumeroPyme = (id) => {
-    const pyme = pymeTraidos.find((p) => Number(p.id) === Number(id))
+    const pyme = pymeTraidos.find((p) => p.id === id)
     // Retorna el número sin espacios ni guiones para la URL de WhatsApp
     return pyme ? pyme.numero.replace(/\s/g, '').replace(/-/g, '') : null;
   }

@@ -69,7 +69,7 @@ function BuzonComentario() {
       return;
     }
         const opinion = {
-        usuario: usuarioEnSesion.nombre,
+        usuario: usuarioEnSesion.Nombre,
         contenido: NuevoComentario,
         fecha: fechaActual.toLocaleString(),
         tour: Number(tourElegido),

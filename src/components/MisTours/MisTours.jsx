@@ -16,16 +16,24 @@ function MisTours() {
       const toursPyme = datosT.filter(
         (t => t.pymeId === usuarioLogueado.id)
       );
-      setTours(toursPyme);
-    };
+      setTours(toursPyme)};
     traerTours();
   }, [usuarioLogueado.pymeId]);
 
   // abrir modal con datos del tour
   const editarTour = (tour) => {
-    setTourEditando({ ...tour });
+    // 1. Clonar el tour
+    const tourParaEditar = { ...tour };
+
+    // 2. CONVERTIR el array 'incluye' a una cadena de texto separada por comas, si es un array.
+    if (Array.isArray(tourParaEditar.incluye)) {
+        tourParaEditar.incluye = tourParaEditar.incluye.join(", ");
+    }
+    
+    // 3. Guardar el tour editando (donde incluye AHORA es un string)
+    setTourEditando(tourParaEditar);
     setShowModal(true);
-  };
+};
 
   // guardar cambios
   const guardarCambios = async () => {
@@ -46,6 +54,7 @@ function MisTours() {
     const itemsIncluidos = tourEditando.incluye
       .split(",")
       .map((i) => i.trim());
+console.log(tourEditando);
 
     const actualizado = {
       ...tourEditando,
@@ -88,7 +97,7 @@ function MisTours() {
                 <h3 className="tour_titulo">{tour.nombre}</h3>
                 <p className="tour_desc">{tour.descripcion}</p>
                 <p className="tour_desc"><strong>A cargo de:</strong> {usuarioLogueado.Nombre}</p>
-                <Button variant="info" onClick={() => editarTour(tour)}>Editar</Button>
+                <Button variant="info" onClick={() => editarTour(tour)}>Editar</Button><br />
                 <Button variant="danger" onClick={() => eliminarTour(tour.id)}>Eliminar</Button>
             </div>
 
@@ -98,7 +107,7 @@ function MisTours() {
                     <li><strong>Duración:</strong> {tour.duracion}</li>
                     <li><strong>Precio:</strong> ₡{tour.precio}</li>
                     <li><strong>Póliza:</strong> {tour.poliza}</li>
-                    <li><strong>Incluye:</strong> {tour.incluye}</li>
+                    <li><strong>Incluye:</strong> {tour.incluye.join(", ")}</li>
                     <li><strong>Punto de partida:</strong> {tour.punto_partida}</li>
                     <li><strong>Calificación:</strong> {tour.calificacion}</li>
                 </ul>
@@ -199,6 +208,7 @@ function MisTours() {
                     })
                   }
                 />
+                <p><strong>Separe cada ítem con una coma (ej: Almuerzo, Guía, Agua)</strong></p>
               </Form.Group>
               <Form.Group className="mb-3">
                 <Form.Label>Punto de partida</Form.Label>

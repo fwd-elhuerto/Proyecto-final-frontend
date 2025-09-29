@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import ServicesUser from '../../services/ServicesUser'
+import ServicesPymes from '../../services/ServicesPymes'
 import Swal from 'sweetalert2'
+import '../Login/Login.css'
 
 function Login() {
   const [Email, setEmail] = useState("") 
   const [Password, setPassword] = useState("")
   const [Users, setUsers] = useState([])
   const navegar = useNavigate()
+  const [pymeTraidos, setpymeTraidos] = useState([])
   
 
   useEffect(() => {
@@ -18,18 +21,34 @@ function Login() {
     pedirUser()
   }, [])
 
+  useEffect(() => {
+   const traerPyme = async () => {
+         const datosP = await ServicesPymes.getPymes()
+         setpymeTraidos(datosP) //setear pymes
+       }
+       traerPyme()
+  }, [])
+
+
   const logIn = () => {
     // Buscar usuario válido
     const usuarioValido = Users.find(
       (user) => user.Email === Email && user.Password === Password
     )
 
-    if (usuarioValido) {
+    const pymeValido = pymeTraidos.find(
+      (pyme) => pyme.Email === Email && pyme.Password === Password
+    )
+
+  console.log(usuarioValido);
+  
+
+    if (usuarioValido || pymeValido) {
       // Guardar en sessionStorage
-      sessionStorage.setItem("usuarioLogueado", JSON.stringify(usuarioValido))
+      sessionStorage.setItem("usuarioLogueado", JSON.stringify(usuarioValido || pymeValido))
 
       // Redirigir según tipo de usuario
-      if (usuarioValido.tipoUsuario === "pyme") {
+      if (pymeValido) {
         navegar("/mainPyme")
       } else if (usuarioValido.tipoUsuario === "cliente") {
         navegar("/Home")
@@ -43,7 +62,7 @@ function Login() {
   }
 
   return (
-    <div className='login'>
+    <div className='bloque'>
       <div className='formLStyle'>
         <h2>Ingreso</h2>
 
@@ -63,9 +82,8 @@ function Login() {
           type="password" 
           placeholder='********' 
           value={Password} 
-          onChange={(e)=> setPassword(e.target.value)} 
-        />
-        <br />
+          onChange={(e)=> setPassword(e.target.value)} />
+        <br /><br />
 
         <button onClick={logIn} className='btn-standard'>Ingresar</button>
       </div>
