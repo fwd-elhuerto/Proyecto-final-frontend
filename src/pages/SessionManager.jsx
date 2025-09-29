@@ -2,6 +2,7 @@ import React from 'react'
 import FormRegisterUser from '../components/FormRegisterUser/FormRegisterUser'
 import Header from '../components/Header/Header'
 import FormRegisterPyme from '../components/FormRegisterpyme/FormRegisterPyme'
+import Login from '../components/Login/Login'
 
 function SessionManager() {
   return (
@@ -14,6 +15,9 @@ function SessionManager() {
         <br />
         <br />
         <FormRegisterPyme />
+        <br />
+        <br />
+        <Login/>
     </div>
   )
 }

@@ -35,12 +35,12 @@
       "imagen": "https://res.cloudinary.com/de6vndqlu/image/upload/v1758903987/ixig5qgbot0d4jfbiodm.jpg"
     },
     {
-      "id": "5f4c",
-      "Nombre": "costaTours",
+      "id": "877a",
+      "Nombre": "CostaTours",
       "anhos_xp": "5",
-      "descripcion": "Especialistas en vacaciones ofrecemos: alojamiento, tours, alquiler de vehículos y mas",
-      "numero": "8790-2345",
-      "imagen": "https://res.cloudinary.com/de6vndqlu/image/upload/v1758921139/r94rddha2wnlrsj3eict.png"
+      "descripcion": "frye dh3hbed dhgtnj dgnneddje dzzgzejtz dznne dgnnd",
+      "numero": "6893-8369",
+      "imagen": "https://res.cloudinary.com/de6vndqlu/image/upload/v1759117379/s6bivpl1f92viko0qzhl.png"
     }
   ],
   "comentarios": [
@@ -133,7 +133,7 @@
     },
     {
       "id": "32",
-      "pymeId": 2,
+      "pymeId": "a2b3",
       "destinoId": 22,
       "nombre": "Tour Parque Nacional Isla San Lucas + Isla Venado + Playa Esmeralda",
       "descripcion": "Tres destinos por un solo precio: historia, cultura local, buena comida y aguas cristalinas",
@@ -149,7 +149,7 @@
     },
     {
       "id": "33",
-      "pymeId": 2,
+      "pymeId": "a2b3",
       "destinoId": 23,
       "nombre": "Tour Bioluminiscencia",
       "descripcion": "Una experiencia mágica mientras navegas bajo el cielo estrellado y descubres cómo el agua cobra vida con destellos de luz natural,",
@@ -200,25 +200,46 @@
       "tipoUsuario": "cliente"
     },
     {
-      "id": "1c9a",
-      "Nombre": "costaTours",
-      "Email": "costa@gmail.com",
-      "Password": "123456789",
-      "tipoUsuario": "pyme"
-    },
-    {
-      "id": "37a1",
-      "Nombre": "costaTours",
-      "Email": "costa@gamail.com",
-      "Password": "123456789",
-      "tipoUsuario": "pyme"
-    },
-    {
       "id": "c788",
       "Nombre": "luis",
       "Email": "luis@gmail.com",
       "Password": "123456789",
       "tipoUsuario": "cliente"
+    },
+    {
+      "id": "cf4e",
+      "Nombre": "CostaTours",
+      "Email": "costa@gamail.com",
+      "Password": "123456789",
+      "tipoUsuario": "pyme"
+    },
+    {
+      "id": "a1b2",
+      "Nombre": "MangleTours",
+      "Email": "mangletours@pyme.com",
+      "Password": "123456789",
+      "tipoUsuario": "pyme"
+    },
+    {
+      "id": "a2b3",
+      "Nombre": "CocosTours",
+      "Email": "cocostours@pyme.com",
+      "Password": "123456789",
+      "tipoUsuario": "pyme"
+    },
+    {
+      "id": "a3b4",
+      "Nombre": "NaturaTours",
+      "Email": "naturatours@pyme.com",
+      "Password": "123456789",
+      "tipoUsuario": "pyme"
+    },
+    {
+      "id": "a4b5",
+      "Nombre": "zetas",
+      "Email": "zetas@pyme.com",
+      "Password": "123456789",
+      "tipoUsuario": "pyme"
     }
   ]
 }
