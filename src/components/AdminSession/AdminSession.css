@@ -1,7 +1,38 @@
-.fondo{
-    background-image: url('../AdminSession/gifTortuga.gif');
-    background-size: cover;
-    background-repeat: no-repeat;
-
+.fondo {
+  background-image: url('../AdminSession/gifTortuga.gif');
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
 }
 
+/* contenedor general */
+.form-container {
+  position: relative;
+  min-height: 400px; /* ajusta según tamaño de tus forms */
+}
+
+/* cada form envuelto */
+.form-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transform: translateX(20px);
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* cuando está activo */
+.form-wrapper.show {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+  position: relative;
+}
+
+/* opcional: estilos botón activo */
+.btn-standard.active {
+  background-color: #198754; /* verde Bootstrap */
+  color: white;
+}

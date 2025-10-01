@@ -22,15 +22,15 @@ function MisTours() {
 
   // abrir modal con datos del tour
   const editarTour = (tour) => {
-    // 1. Clonar el tour
+    //clonar el tour
     const tourParaEditar = { ...tour };
 
-    // 2. CONVERTIR el array 'incluye' a una cadena de texto separada por comas, si es un array.
+    // convirtir el array 'incluye' a una cadena de texto separada por comas, si es un array.
     if (Array.isArray(tourParaEditar.incluye)) {
         tourParaEditar.incluye = tourParaEditar.incluye.join(", ");
     }
     
-    // 3. Guardar el tour editando (donde incluye AHORA es un string)
+    //guardar el tour editando (donde incluye AHORA es un string)
     setTourEditando(tourParaEditar);
     setShowModal(true);
 };
@@ -123,112 +123,110 @@ console.log(tourEditando);
         show={showModal}
         onHide={() => setShowModal(false)}
         size="lg"
-        centered>
+        centered
+      >
         <Modal.Header closeButton>
-          <Modal.Title>Editar Tour</Modal.Title>
+            <Modal.Title>Editar Tour</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {tourEditando && (
-            <Form>
-              <Form.Group className="mb-3">
-                <Form.Label>Nombre</Form.Label>
-                <Form.Control
-                  type="text"
-                  value={tourEditando.nombre}
-                  onChange={(e) =>
-                    setTourEditando({ ...tourEditando, nombre: e.target.value })
-                  }
-                />
-              </Form.Group>
-              <Form.Group className="mb-3">
-                <Form.Label>Descripción</Form.Label>
-                <Form.Control
-                  as="textarea"
-                  value={tourEditando.descripcion}
-                  onChange={(e) =>
-                    setTourEditando({
-                      ...tourEditando,
-                      descripcion: e.target.value,
-                    })
-                  }
-                />
-              </Form.Group>
-              <Form.Group className="mb-3">
-                <Form.Label>Duración</Form.Label>
-                <Form.Control
-                  type="text"
-                  value={tourEditando.duracion}
-                  onChange={(e) =>
-                    setTourEditando({
-                      ...tourEditando,
-                      duracion: e.target.value,
-                    })
-                  }
-                />
-              </Form.Group>
-              <Form.Group className="mb-3">
-                <Form.Label>Precio</Form.Label>
-                <Form.Control
-                  type="number"
-                  value={tourEditando.precio}
-                  onChange={(e) =>
-                    setTourEditando({
-                      ...tourEditando,
-                      precio: e.target.value,
-                    })
-                  }
-                />
-              </Form.Group>
-              <Form.Group className="mb-3">
-                <Form.Label>Póliza</Form.Label>
-                <Form.Control
-                  type="text"
-                  value={tourEditando.poliza}
-                  onChange={(e) =>
-                    setTourEditando({
-                      ...tourEditando,
-                      poliza: e.target.value,
-                    })
-                  }
-                />
-              </Form.Group>
-              <Form.Group className="mb-3">
-                <Form.Label>Incluye</Form.Label>
-                <Form.Control
-                  type="text"
-                  value={
-                    Array.isArray(tourEditando.incluye)
-                      ? tourEditando.incluye.join(", ")
-                      : tourEditando.incluye
-                  }
-                  onChange={(e) =>
-                    setTourEditando({
-                      ...tourEditando,
-                      incluye: e.target.value,
-                    })
-                  }
-                />
-                <p><strong>Separe cada ítem con una coma (ej: Almuerzo, Guía, Agua)</strong></p>
-              </Form.Group>
-              <Form.Group className="mb-3">
-                <Form.Label>Punto de partida</Form.Label>
-                <Form.Control
-                  type="text"
-                  value={tourEditando.punto_partida}
-                  onChange={(e) =>
-                    setTourEditando({
-                      ...tourEditando,
-                      punto_partida: e.target.value,
-                    })
-                  }
-                />
-              </Form.Group>
-            </Form>
-          )}
+            {tourEditando && (
+                <div>
+                    <div className="mb-3">
+                        <label htmlFor="nombre" className="label-standard">Nombre</label>
+                        <input
+                            className="form-control"
+                            type="text"
+                            value={tourEditando.nombre}
+                            onChange={(e) =>
+                                setTourEditando({ ...tourEditando, nombre: e.target.value })}/>
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="descripcion" className="label-standard">Descripción</label>
+                        <textarea
+                            className="form-control"
+                            value={tourEditando.descripcion}
+                            onChange={(e) =>
+                                setTourEditando({
+                                    ...tourEditando,
+                                    descripcion: e.target.value,
+                                })}></textarea>
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="duracion" className="label-standard">Duración</label>
+                        <input
+                            id="duracion"
+                            className="form-control"
+                            type="text"
+                            value={tourEditando.duracion}
+                            onChange={(e) =>
+                                setTourEditando({
+                                    ...tourEditando,
+                                    duracion: e.target.value,
+                                })}/>
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="precio" className="label-standard">Precio</label>
+                        <input
+                            id="precio"
+                            className="form-control"
+                            type="number"
+                            value={tourEditando.precio}
+                            onChange={(e) =>
+                                setTourEditando({
+                                    ...tourEditando,
+                                    precio: e.target.value,
+                                })}/>
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="poliza" className="label-standard">Póliza</label>
+                        <input
+                            id="poliza"
+                            className="form-control"
+                            type="text"
+                            value={tourEditando.poliza}
+                            onChange={(e) =>
+                                setTourEditando({
+                                    ...tourEditando,
+                                    poliza: e.target.value,
+                                })}/>
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="incluye" className="label-standard">Incluye</label>
+                        <input
+                            id="incluye"
+                            className="form-control"
+                            type="text"
+                            value={
+                                Array.isArray(tourEditando.incluye)
+                                    ? tourEditando.incluye.join(", ")
+                                    : tourEditando.incluye
+                            }
+                            onChange={(e) =>
+                                setTourEditando({
+                                    ...tourEditando,
+                                    incluye: e.target.value,
+                                })}/>
+                        <p><strong>Separe cada ítem con una coma (ej: Almuerzo, Guía, Agua)</strong></p>
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="punto_partida" className="label-standard">Punto de partida</label>
+                        <input
+                            id="punto_partida"
+                            className="form-control"
+                            type="text"
+                            value={tourEditando.punto_partida}
+                            onChange={(e) =>
+                                setTourEditando({
+                                    ...tourEditando,
+                                    punto_partida: e.target.value,
+                                })}/>
+                    </div>
+                </div>
+            )}
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShowModal(false)}> Cancelar</Button>
-          <Button className="btn-standard" onClick={guardarCambios}> Guardar cambios</Button>
+            <Button variant="secondary" onClick={() => setShowModal(false)}> Cancelar</Button>
+            <Button className="btn-standard" onClick={guardarCambios}> Guardar cambios</Button>
         </Modal.Footer>
       </Modal>
     </div>

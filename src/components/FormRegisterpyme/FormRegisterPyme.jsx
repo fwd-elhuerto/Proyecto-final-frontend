@@ -13,6 +13,7 @@ const [descripcion, setDescripcion]=useState("")
 const [numero, setNumero]=useState("")
 const [imagen, setImagen]=useState("")
 const [Users, setUsers] = useState([])
+const [pymes, setPymes] = useState([])
 const [Password, setPassword]=useState("")
 const [Password2, setPassword2]=useState("")
 const [Email, setEmail] = useState("")
@@ -27,12 +28,22 @@ const navegar = useNavigate()
         pedirUser()
     },[])
 
+    // traer pymes
+      useEffect(() => {
+        const traerPymes = async () => {
+          const datosP = await ServicesPymes.getPymes()
+          setPymes(datosP)
+        }
+        traerPymes()
+      }, [])
+
     
 
     const CargarPymes = async () => {
         //Verificar si el Nombre o email ya existe
-        const pymeExistente = Users.find(u => u.Nombre === Nombre && u.Email === Email);
-        if (pymeExistente) {
+        const pymeExistente = pymes.find(p => p.Nombre === Nombre && p.Email === Email);
+        const usuarioExistente = Users.find(u => u.Nombre === Nombre && u.Email === Email);
+        if (pymeExistente || usuarioExistente) {
             Swal.fire('Error', 'El Nombre o email ya están registrados.', 'error');
             return;}
         //Campos obligatorios
@@ -69,8 +80,7 @@ const navegar = useNavigate()
 
         const datosPymes = { Nombre, anhos_xp, descripcion, numero, imagen: urlImagen, Email, Password};//objeto con propiedades de la empresa
         await ServicesPymes.postPymes(datosPymes);
-        Swal.fire('¡Registro Exitoso!', 'El pyme ha sido registrado correctamente.', 'success');
-        navegar("/Home"); 
+        Swal.fire('¡Registro Exitoso!', 'El pyme ha sido registrado correctamente.', 'success'); 
     };
 
 

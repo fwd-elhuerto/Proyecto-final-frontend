@@ -1,1 +1,1 @@
-Tecnologias usadas: react-rating-stars-component
+Tecnologias usadas: react-stars-component, Framer Motion, bootstrap
