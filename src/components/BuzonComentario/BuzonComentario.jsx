@@ -3,6 +3,7 @@ import Swal from 'sweetalert2';
 import '../BuzonComentario/BuzonComentario.css'
 import ServicesComentarios from '../../services/ServicesComentarios';
 import ServicesTours from '../../services/ServicesTours';
+import ServicesPymes from '../../services/ServicesPymes';
 import { useNavigate } from "react-router-dom";
 import ReactStars from "react-stars";
 
@@ -31,11 +32,58 @@ function BuzonComentario() {
   }, [])
 
 
+// funcion para caulcular calificacion dek tour
+const actualizarCalificacionTour = async (tourId, nuevaCalificacion, comentariosActuales, toursActuales) => {
+  const comentariosTour = comentariosActuales
+    .filter(c =>String(c.tour) ===String(tourId))
+    .map(c => Number(c.calificacion));
 
+  const todasLasCalificaciones = [...comentariosTour, nuevaCalificacion];
+  const suma = todasLasCalificaciones.reduce((acc, curr) => acc + curr, 0); //acumulador de calfi. + califi. axctual
+  const nuevoPromedio = suma / todasLasCalificaciones.length;
+
+  const tourAActualizar = toursActuales.find(t =>String(t.id) ===String(tourId));
+
+  if (tourAActualizar) {
+    const tourActualizado = {
+      ...tourAActualizar,
+      calificacion: nuevoPromedio.toFixed(1) + "/5" // añadir /5 despues de la calificacion
+    };
+    await ServicesTours.putTour(tourActualizado, tourId); //actulizar
+    return tourActualizado;
+  }
+
+  return null;
+};
+
+// funcion para caulcular calificacion delk pyme
+const actualizarCalificacionPyme = async (pymeId, toursActualizados) => {
+  const toursDePyme = toursActualizados.filter(t =>String(t.pymeId) ===String(pymeId));
+
+  if (toursDePyme.length > 0) {
+    const calificacionesDeTours = toursDePyme.map(t =>
+      parseFloat(String(t.calificacion).split('/')[0]) //convertir a texto y quitar el /5
+    );
+
+    const sumaCalificaciones = calificacionesDeTours.reduce((acc, curr) => acc + curr, 0);
+    const nuevoPromedioPyme = sumaCalificaciones / calificacionesDeTours.length;
+
+    const pymeData = await ServicesPymes.getPymes();
+    const pymeAActualizar = pymeData.find(p =>String(p.id) ===String(pymeId));
+
+    if (pymeAActualizar) {
+      const pymeActualizada = {
+        ...pymeAActualizar,
+        calificacion: nuevoPromedioPyme.toFixed(1) + "/5" // añadir /5 despues de la calificacion
+      };
+      await ServicesPymes.putPymes(pymeActualizada, pymeId); // actualizar
+    }
+  }
+};
 
   // función para buscar el nombre del tour por id
   const obtenerNombreTour = (id) => {
-    const tour = ToursTraidos.find((t) => Number(t.id) === Number(id))
+    const tour = ToursTraidos.find((t) =>String(t.id) ===String(id))
     return tour ? tour.nombre : "Tour no encontrado"
   }
 
@@ -72,79 +120,113 @@ function BuzonComentario() {
         usuario: usuarioEnSesion.Nombre,
         contenido: NuevoComentario,
         fecha: fechaActual.toLocaleString(),
-        tour: Number(tourElegido),
-        calificacion: calificacion
+        tour:String(tourElegido),
+        calificacion: String(calificacion)
     };
 
-    try {
-        const savedOpinion = await ServicesComentarios.postComentarios(opinion);
+    
+    
+      //guardar el nuevo comentario en la base de datos
+      const savedOpinion = await ServicesComentarios.postComentarios(opinion);
 
-        
-        setComentarios([...Comentarios, savedOpinion]); // actualizar la lista sin recargar
-        setNuevoComentario("");
-        settourElegido("");
+      //obtener ids necesarios
+      const tourId = String(tourElegido);
+      const tourOriginal = ToursTraidos.find(t => String(t.id) === tourId);
+      const pymeId = tourOriginal ? tourOriginal.pymeId : null;
 
-        Swal.fire("¡Listo!", "Comentario agregado.", "success");
-    } catch (error) {
-        console.error(error);
-    }
-    };
+      // actualizar calificación del tour
+      const updatedTour = await actualizarCalificacionTour(
+        tourId,
+        calificacion,
+        Comentarios,
+        ToursTraidos
+      );
 
+      // actualizar calificación de la pyme
+      if (pymeId && updatedTour) {
+        const nuevosTours = ToursTraidos.map(t =>
+          String(t.id) === tourId ? updatedTour : t
+        );
+        await actualizarCalificacionPyme(pymeId, nuevosTours);
+        setToursTraidos(nuevosTours);
+      }
+
+      //Actualizar estado de comentarios y limpiar formulario
+      setComentarios([...Comentarios, savedOpinion]);
+      setNuevoComentario("");
+      settourElegido("");
+      setCalificacion(0);
+
+      Swal.fire("¡Listo!", "Comentario agregado y calificaciones actualizadas.", "success");
+      }
   
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   return (
-    <div className="container mt-4">
+      <div className="container mt-4">
         <h1>Experiencias de viajeros</h1>
-      <div className="row">
-        {Comentarios.map((comentario) => (
-          <div key={comentario.id} className="col-md-4 col-sm-6 mb-4">
-            <div className="comentario_card">
-              <h3 className="comentario_titulo">{comentario.usuario}</h3>
-              <p className="comentario_desc">{comentario.contenido}</p>
-              <p className="comentario_desc">
-                <strong>Tour: </strong>{obtenerNombreTour(comentario.tour)}
-              </p>
-              <p className="comentario_desc">Calificación 🌟{comentario.calificacion}</p>
+
+        <div className="row">
+          {Comentarios.map((comentario) => (
+            <div key={comentario.id} className="col-md-4 col-sm-6 mb-4">
+              <div className="comentario_card">
+                <h3 className="comentario_titulo">{comentario.usuario}</h3>
+                <p className="comentario_desc">{comentario.contenido}</p>
+                <p className="comentario_desc">
+                  <strong>Tour: </strong>{obtenerNombreTour(comentario.tour)}
+                </p>
+                <p className="comentario_desc">Calificación 🌟{comentario.calificacion}</p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
 
         <div className="row justify-content-center">
-    <div className="col-md-8">
-      <div className="buzon_form">
-        <h3>Deja tu comentario</h3>
-        <input
-          type="text"
-          placeholder="Escribe tu comentario..."
-          value={NuevoComentario}
-          onChange={(e) => setNuevoComentario(e.target.value)}
-        />
-        <select
-          value={tourElegido}
-          onChange={(e) => settourElegido(e.target.value)}
-        >
-          <option value="">Selecciona un tour</option>
-          {ToursTraidos.map((tour) => (
-            <option key={tour.id} value={tour.id}>
-              {tour.nombre}
-            </option>
-          ))}
-        </select>
-        <ReactStars
-          count={5}
-          value={calificacion}
-          onChange={(newRating) => setCalificacion(newRating)}
-          size={30}
-          activeColor="#ffd700"
-        />
-        <button onClick={guardarComentario} className='btn-standard'>Enviar</button>
+          <div className="col-md-8">
+            <div className="buzon_form">
+              <h3>Deja tu comentario</h3>
+              <input
+                className="form-control mb-3"
+                type="text"
+                placeholder="Escribe tu comentario..."
+                value={NuevoComentario}
+                onChange={(e) => setNuevoComentario(e.target.value)}
+              />
+              <select
+                className="form-select mb-3"
+                value={tourElegido}
+                onChange={(e) => settourElegido(e.target.value)}
+              >
+                <option value="">Selecciona un tour</option>
+                {ToursTraidos.map((tour) => (
+                  <option key={tour.id} value={tour.id}>
+                    {tour.nombre}
+                  </option>
+                ))}
+              </select>
+
+              <div className="mb-3 d-flex align-items-center">
+                <span className="me-2">Tu calificación:</span>
+                <ReactStars
+                  count={5}
+                  value={calificacion}
+                  onChange={(newRating) => setCalificacion(newRating)}
+                  size={30}
+                  activeColor="#ffd700"
+                />
+              </div>
+
+              <button
+                onClick={guardarComentario}
+                className="btn-standard btn btn-primary"
+              >
+                Enviar
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
 
 
-      </div>
-    </div>
   )
 }
 

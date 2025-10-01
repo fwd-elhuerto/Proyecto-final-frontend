@@ -78,7 +78,7 @@ const navegar = useNavigate()
         urlImagen = await subirImagen(imagen);
         }
 
-        const datosPymes = { Nombre, anhos_xp, descripcion, numero, imagen: urlImagen, Email, Password};//objeto con propiedades de la empresa
+        const datosPymes = { Nombre, anhos_xp, calificacion: "", descripcion, numero, imagen: urlImagen, Email, Password};//objeto con propiedades de la empresa
         await ServicesPymes.postPymes(datosPymes);
         Swal.fire('¡Registro Exitoso!', 'El pyme ha sido registrado correctamente.', 'success'); 
     };

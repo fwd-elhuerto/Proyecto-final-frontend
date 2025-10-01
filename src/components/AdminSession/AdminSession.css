@@ -8,7 +8,7 @@
 /* contenedor general */
 .form-container {
   position: relative;
-  min-height: 400px; /* ajusta según tamaño de tus forms */
+  height: 960px;
 }
 
 /* cada form envuelto */

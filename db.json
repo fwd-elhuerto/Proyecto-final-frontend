@@ -4,7 +4,7 @@
       "id": "1",
       "Nombre": "MangleTours",
       "anhos_xp": 10,
-      "calificacion": 4.7,
+      "calificacion": "2.3/5",
       "descripcion": "Empresa local especializada en tours por el Golfo de Nicoya, incluyendo Isla Tortuga, Isla San Lucas, Playa Muertos y experiencias de bioluminiscencia. Nuestro enfoque está en el servicio al cliente, siendo su satisfacción nuestra máxima prioridad.",
       "numero": "7136-8327",
       "imagen": "https://mangletours.com/wp-content/uploads/2024/05/WhatsApp-Image-2024-03-22-at-2.55.14-PM-Photoroom.png-Photoroom.png",
@@ -13,9 +13,9 @@
     },
     {
       "id": "2",
-      "Nombre": "CocosTours",
+      "Nombre": "CocosToures",
       "anhos_xp": 8,
-      "calificacion": 4.5,
+      "calificacion": "4.5",
       "descripcion": "Cocos Tours nació como complemento a la actividad gastronómica y la conexión ancestral con el mar y la pesca. Fundado sobre los valores de familia, fe, sostenibilidad y honestidad, este emprendimiento busca ofrecer una experiencia de turismo en sintonía con la naturaleza y que refuerce el lazo comunitario.",
       "numero": "8876-9354",
       "imagen": "https://cocostours.cr/wp-content/uploads/2025/03/Untitled-design-e1741223929619.png",
@@ -31,26 +31,6 @@
       "imagen": "https://res.cloudinary.com/de6vndqlu/image/upload/v1758901311/kr7rdazk1kyxeku9qtem.png",
       "Email": "naturatours@pyme.com",
       "Password": "123456789"
-    },
-    {
-      "id": "d0c8",
-      "Nombre": "zetas",
-      "anhos_xp": "1",
-      "descripcion": "secuestramos las personas que contratan nuestros tours",
-      "numero": "6207-1398",
-      "imagen": "https://res.cloudinary.com/de6vndqlu/image/upload/v1758903987/ixig5qgbot0d4jfbiodm.jpg",
-      "Email": "zetas@pyme.com",
-      "Password": "123456789"
-    },
-    {
-      "id": "877a",
-      "Nombre": "CostaTours",
-      "anhos_xp": "5",
-      "descripcion": "frye dh3hbed dhgtnj dgnneddje dzzgzejtz dznne dgnnd",
-      "numero": "6893-8369",
-      "imagen": "https://res.cloudinary.com/de6vndqlu/image/upload/v1759117379/s6bivpl1f92viko0qzhl.png",
-      "Email": "costa@gamail.com",
-      "Password": "123456789"
     }
   ],
   "comentarios": [
@@ -59,23 +39,40 @@
       "usuario": "Carlos",
       "contenido": "Excelente experiencia en el tour de snorkel",
       "fecha": "2025-09-18",
-      "tour": 31,
-      "calificacion": 5
+      "tour": "31",
+      "calificacion": "5"
     },
     {
       "id": "2",
       "usuario": "Ana",
       "contenido": "Muy organizado, pero un poco cansado",
       "fecha": "2025-09-17",
-      "tour": 33,
-      "calificacion": 4
+      "tour": "33",
+      "calificacion": "4"
     },
     {
-      "id": "b9c2",
-      "contenido": "hola",
-      "fecha": "29/9/2025, 9:44:44 a. m.",
-      "tour": 32,
-      "calificacion": 3.5
+      "id": "a3ed",
+      "usuario": "luis",
+      "contenido": "holaaa",
+      "fecha": "1/10/2025, 8:47:11 a. m.",
+      "tour": "32",
+      "calificacion": "4"
+    },
+    {
+      "id": "da1d",
+      "usuario": "luis",
+      "contenido": "malo",
+      "fecha": "1/10/2025, 11:48:36 a. m.",
+      "tour": "31",
+      "calificacion": "1"
+    },
+    {
+      "id": "a475",
+      "usuario": "luis",
+      "contenido": "malandro",
+      "fecha": "1/10/2025, 12:00:31 p. m.",
+      "tour": "31",
+      "calificacion": "1"
     }
   ],
   "solicitudUsuario": [
@@ -146,7 +143,7 @@
         "Chalecos y botiquín"
       ],
       "punto_partida": " Puntarenas, Marina, Hotel Puerto Azul.",
-      "calificacion": "4.8/5"
+      "calificacion": "2.3/5"
     },
     {
       "id": "32",
@@ -156,7 +153,7 @@
       "descripcion": "Tres destinos por un solo precio: historia, cultura local, buena comida y aguas cristalinas",
       "duracion": "7 horas 30 min",
       "precio": 40000,
-      "poliza": "Seguro Premium ",
+      "poliza": "Seguro pro",
       "incluye": [
         "Guía especializado",
         "Almuerzo en restaurante flotante",

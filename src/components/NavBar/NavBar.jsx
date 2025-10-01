@@ -25,7 +25,7 @@ function Navbar() {
   }
 
   return (
-    <div className="container mt-4">
+    <div className=" mt-4">
         <h1>Islas y destinos</h1>
       <Carousel>
         {Destinos.map(destino => (
@@ -36,11 +36,13 @@ function Navbar() {
               alt={destino.nombre}
             />
             <Carousel.Caption>
+              <div className='contraste'>
               <h3>{destino.nombre}</h3>
               <p>{destino.descripcion}</p>
               <button className="btn-standard" onClick={() => irADestino(destino.id)}>
                 Ver tours Disponibles
               </button>
+              </div>
             </Carousel.Caption>
           </Carousel.Item>
         ))}

@@ -1,4 +1,3 @@
-// PrivHeader.jsx
 import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import Dropdown from "react-bootstrap/Dropdown";
@@ -15,14 +14,10 @@ function PrivHeader() {
   const usuarioLogueado = JSON.parse(sessionStorage.getItem("usuarioLogueado"));
 
   const [show, setShow] = useState(false);
-  const [formData, setFormData] = useState(usuarioLogueado || {});
+  const [formData, setFormData] = useState(() => usuarioLogueado || {});
   const [users, setUsers] = useState([]);
   const [pymes, setPymes] = useState([]);
   const [imagenFile, setImagenFile] = useState(null);
-
-  useEffect(() => {
-    if (usuarioLogueado) setFormData(usuarioLogueado);
-  }, [usuarioLogueado]);
 
   useEffect(() => {
     const pedirUser = async () => {
@@ -44,12 +39,19 @@ function PrivHeader() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // subida a Cloudinary si hay imagen nueva
+  const handleShow = () => {
+    if (usuarioLogueado) {
+      setFormData(usuarioLogueado);
+      setImagenFile(null);
+    }
+    setShow(true);
+  };
+
   const subirImagen = async (file) => {
     const data = new FormData();
     data.append("file", file);
-    data.append("upload_preset", "isleñoImages"); // tu preset
-    const res = await fetch(`https://api.cloudinary.com/v1_1/de6vndqlu/image/upload`, {
+    data.append("upload_preset", "isleñoImages");
+    const res = await fetch("https://api.cloudinary.com/v1_1/de6vndqlu/image/upload", {
       method: "POST",
       body: data,
     });
@@ -62,11 +64,11 @@ function PrivHeader() {
       if (!usuarioLogueado) return;
 
       if (usuarioLogueado.tipoUsuario === "admin") {
-        // validar admin (uso users para duplicados)
         if (!formData.Nombre?.trim() || !formData.Email?.trim() || !formData.Password?.trim()) {
           Swal.fire("Error", "Todos los campos son obligatorios.", "error");
           return;
         }
+
         const dup = users.find(
           (u) =>
             (u.Email === formData.Email || u.Nombre === formData.Nombre) &&
@@ -78,14 +80,12 @@ function PrivHeader() {
         }
 
         await ServicesUser.putUsuarios(formData, usuarioLogueado.id);
-        Swal.fire("¡Éxito!", "Perfil de admin actualizado.", "success");
+        Swal.fire("¡Éxito!", "Perfil de admin actualizado. Inicie sesión nuevamente para ver los cambios.", "success");
         setShow(false);
         return;
       }
 
-      // si es pyme
       if (usuarioLogueado.tipoUsuario !== "admin") {
-        // validaciones pyme
         if (
           !formData.Nombre?.trim() ||
           !formData.anhos_xp?.toString().trim() ||
@@ -98,33 +98,32 @@ function PrivHeader() {
           return;
         }
 
-        // comprobar duplicados entre pymes y usuarios (excluyendo actual)
         const dupPyme = pymes.find(
           (p) =>
             (p.Email === formData.Email || p.Nombre === formData.Nombre) &&
             p.id !== usuarioLogueado.id
         );
         const dupUser = users.find(
-          (u) => (u.Email === formData.Email || u.Nombre === formData.Nombre) && u.id !== usuarioLogueado.id
+          (u) =>
+            (u.Email === formData.Email || u.Nombre === formData.Nombre) &&
+            u.id !== usuarioLogueado.id
         );
         if (dupPyme || dupUser) {
           Swal.fire("Error", "El nombre o correo ya están en uso.", "error");
           return;
         }
 
-        // si subieron imagen, subir a Cloudinary primero
         if (imagenFile) {
           const url = await subirImagen(imagenFile);
           formData.imagen = url;
         }
 
-        // parsear calificación si necesario
         if (formData.calificacion) {
           formData.calificacion = Number(formData.calificacion);
         }
 
         await ServicesPymes.putPymes(formData, usuarioLogueado.id);
-        Swal.fire("¡Éxito!", "Perfil de pyme actualizado.", "success");
+        Swal.fire("¡Éxito!", "Perfil de pyme actualizado. Inicie sesión nuevamente para ver los cambios.", "success");
         setShow(false);
         return;
       }
@@ -148,12 +147,9 @@ function PrivHeader() {
       <h3>Bienvenido {usuarioLogueado?.Nombre}</h3>
 
       <Dropdown align="end">
-        <Dropdown.Toggle as="button" className="menu-btn">
-          ☰
-        </Dropdown.Toggle>
-
+        <Dropdown.Toggle as="button" className="menu-btn">☰</Dropdown.Toggle>
         <Dropdown.Menu>
-          <Dropdown.Item onClick={() => setShow(true)}>Editar perfil</Dropdown.Item>
+          <Dropdown.Item onClick={handleShow}>Editar perfil</Dropdown.Item>
           <Dropdown.Item onClick={cerrarSesion}>Cerrar sesión</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
@@ -166,114 +162,42 @@ function PrivHeader() {
           {usuarioLogueado?.tipoUsuario === "admin" ? (
             <>
               <label className="label-standard">Nombre</label>
-              <input
-                type="text"
-                name="Nombre"
-                value={formData.Nombre || ""}
-                onChange={handleChange}
-                className="form-control mb-2"
-              />
+              <input type="text" name="Nombre" value={formData.Nombre || ""} onChange={handleChange} className="form-control mb-2" />
 
               <label className="label-standard">Email</label>
-              <input
-                type="email"
-                name="Email"
-                value={formData.Email || ""}
-                onChange={handleChange}
-                className="form-control mb-2"
-              />
+              <input type="email" name="Email" value={formData.Email || ""} onChange={handleChange} className="form-control mb-2" />
 
               <label className="label-standard">Contraseña</label>
-              <input
-                type="password"
-                name="Password"
-                value={formData.Password || ""}
-                onChange={handleChange}
-                className="form-control mb-2"
-              />
+              <input type="password" name="Password" value={formData.Password || ""} onChange={handleChange} className="form-control mb-2" />
             </>
           ) : (
             <>
               <label className="label-standard">Nombre</label>
-              <input
-                type="text"
-                name="Nombre"
-                value={formData.Nombre || ""}
-                onChange={handleChange}
-                className="form-control mb-2"
-              />
+              <input type="text" name="Nombre" value={formData.Nombre || ""} onChange={handleChange} className="form-control mb-2" />
 
               <label className="label-standard">Años de experiencia</label>
-              <input
-                type="number"
-                name="anhos_xp"
-                value={formData.anhos_xp || ""}
-                onChange={handleChange}
-                className="form-control mb-2"
-              />
-
-              <label className="label-standard">Calificación</label>
-              <input
-                type="number"
-                step="0.1"
-                name="calificacion"
-                value={formData.calificacion || ""}
-                onChange={handleChange}
-                className="form-control mb-2"
-              />
+              <input type="number" name="anhos_xp" value={formData.anhos_xp || ""} onChange={handleChange} className="form-control mb-2" />
 
               <label className="label-standard">Descripción</label>
-              <textarea
-                name="descripcion"
-                value={formData.descripcion || ""}
-                onChange={handleChange}
-                className="form-control mb-2"
-              />
+              <textarea name="descripcion" value={formData.descripcion || ""} onChange={handleChange} className="form-control mb-2" />
 
               <label className="label-standard">Número</label>
-              <input
-                type="text"
-                name="numero"
-                value={formData.numero || ""}
-                onChange={handleChange}
-                className="form-control mb-2"
-              />
+              <input type="text" name="numero" value={formData.numero || ""} onChange={handleChange} className="form-control mb-2" />
 
               <label className="label-standard">Logo / Imagen</label>
-              <input
-                type="file"
-                accept="image/*"
-                onChange={(e) => setImagenFile(e.target.files[0])}
-                className="form-control mb-2"
-              />
+              <input type="file" accept="image/*" onChange={(e) => setImagenFile(e.target.files[0])} className="form-control mb-2" />
 
               <label className="label-standard">Email</label>
-              <input
-                type="email"
-                name="Email"
-                value={formData.Email || ""}
-                onChange={handleChange}
-                className="form-control mb-2"
-              />
+              <input type="email" name="Email" value={formData.Email || ""} onChange={handleChange} className="form-control mb-2" />
 
               <label className="label-standard">Contraseña</label>
-              <input
-                type="password"
-                name="Password"
-                value={formData.Password || ""}
-                onChange={handleChange}
-                className="form-control mb-2"
-              />
+              <input type="password" name="Password" value={formData.Password || ""} onChange={handleChange} className="form-control mb-2" />
             </>
           )}
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShow(false)}>
-            Cancelar
-          </Button>
-          <Button variant="primary" onClick={handleSave}>
-            Guardar
-          </Button>
+          <Button variant="secondary" onClick={() => setShow(false)}>Cancelar</Button>
+          <Button variant="primary" onClick={handleSave}>Guardar</Button>
         </Modal.Footer>
       </Modal>
     </header>
