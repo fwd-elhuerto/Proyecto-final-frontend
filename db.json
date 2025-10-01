@@ -15,7 +15,7 @@
       "id": "2",
       "Nombre": "CocosToures",
       "anhos_xp": 8,
-      "calificacion": "4.5",
+      "calificacion": "4.5/5",
       "descripcion": "Cocos Tours nació como complemento a la actividad gastronómica y la conexión ancestral con el mar y la pesca. Fundado sobre los valores de familia, fe, sostenibilidad y honestidad, este emprendimiento busca ofrecer una experiencia de turismo en sintonía con la naturaleza y que refuerce el lazo comunitario.",
       "numero": "8876-9354",
       "imagen": "https://cocostours.cr/wp-content/uploads/2025/03/Untitled-design-e1741223929619.png",
@@ -73,24 +73,14 @@
       "fecha": "1/10/2025, 12:00:31 p. m.",
       "tour": "31",
       "calificacion": "1"
-    }
-  ],
-  "solicitudUsuario": [
-    {
-      "id": "1",
-      "tourId": "1",
-      "usuario": "María",
-      "telefono": "8888-9999",
-      "correo": "maria@gmail.com",
-      "consulta": "¿Hay descuentos para grupos?"
     },
     {
-      "id": "2",
-      "tourId": "2",
-      "usuario": "Pedro",
-      "telefono": "7777-6666",
-      "correo": "pedro@hotmail.com",
-      "consulta": "¿Puedo pagar con tarjeta?"
+      "id": "4fe3",
+      "usuario": "luis",
+      "contenido": "ffffff",
+      "fecha": "1/10/2025, 3:44:57 p. m.",
+      "tour": "33",
+      "calificacion": "5"
     }
   ],
   "destinos": [
@@ -171,7 +161,7 @@
       "nombre": "Tour Bioluminiscencia",
       "descripcion": "Una experiencia mágica mientras navegas bajo el cielo estrellado y descubres cómo el agua cobra vida con destellos de luz natural,",
       "duracion": "7 horas 30 min",
-      "precio": 300000,
+      "precio": 30000,
       "poliza": "Seguro Base",
       "incluye": [
         "Guía especializado",
@@ -181,7 +171,7 @@
         "Chalecos"
       ],
       "punto_partida": "200 metros. oeste del muelle del ferry, Barrio El Carmen, Puntarenas",
-      "calificacion": "3.9/5"
+      "calificacion": "4.5/5"
     }
   ],
   "emprendedores": [
@@ -213,18 +203,18 @@
       "tipoUsuario": "admin"
     },
     {
-      "id": "357b",
-      "Nombre": "fio",
-      "Email": "fio@gmail.com",
+      "id": "c788",
+      "Nombre": "luis",
+      "Email": "luismiguel@gmail.com",
       "Password": "123456789",
       "tipoUsuario": "cliente"
     },
     {
-      "id": "c788",
-      "Nombre": "luis",
-      "Email": "luis@gmail.com",
+      "id": "95c1",
+      "Nombre": "steven",
+      "Email": "steven@gmail.com",
       "Password": "123456789",
-      "tipoUsuario": "cliente"
+      "tipoUsuario": "admin"
     }
   ]
 }

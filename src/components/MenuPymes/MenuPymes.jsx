@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Swal from 'sweetalert2';
 import ServicesPymes from '../../services/ServicesPymes';
 import ServicesTours from '../../services/ServicesTours';
 import { Modal, Button } from 'react-bootstrap';
+import { motion, useInView } from 'framer-motion'
 import '../MenuPymes/MenuPymes.css'
 
 function MenuPymes() {
@@ -56,8 +57,20 @@ function MenuPymes() {
     }
   }
 
+     const animacionRef = useRef(null)
+     const isInView = useInView(animacionRef, { once: true, margin: "-100px" }) 
+     // margin es para que se active un poco antes de estar en encima
   return (
     <div className="container mt-4">
+      <motion.div
+        ref={animacionRef}
+        className="animacion"
+        initial={{ opacity: 0, x: -100 }}  // empieza oculto y desplazado a la izquierda
+        animate={isInView ? { opacity: 1, x: 0 } : {}} // cuando entra en vista, aparece
+        transition={{ duration: 0.8, ease: "easeOut" }} // suavidad
+      >
+        <h1>Empresas disponibles</h1>
+      </motion.div>
       <div className="row">
         {Pymes.map((pyme) => (
           <div key={pyme.id} className="col-md-4 col-sm-6 mb-4">
@@ -65,6 +78,11 @@ function MenuPymes() {
               <img src={pyme.imagen} alt={pyme.Nombre} className="pyme_img" />
               <h3 className="pyme_titulo">{pyme.Nombre}</h3>
               <p className="pyme_desc">{pyme.descripcion}</p>
+              {pyme.calificacion ? (
+              <p className="pyme_desc">{pyme.calificacion} 🌟</p>
+              ) : (
+              <p className="text-muted">Sin calificación</p>
+              )}
               <button 
                 className='btn-standard' 
                 onClick={() => verTours(pyme)}
@@ -93,7 +111,7 @@ function MenuPymes() {
                   <p><strong>Duración:</strong> {tour.duracion}</p>
                   <p><strong>Precio:</strong> ₡{tour.precio}</p>
                   <p><strong>Poliza:</strong> {tour.poliza}</p>
-                  <p><strong>Incluye:</strong> {tour.incluye}</p>
+                  <p><strong>Incluye:</strong> {tour.incluye.join(", ")}</p>
                   <p><strong>Punto de partida:</strong> {tour.punto_partida}</p>
                   <p><strong>Calificación:</strong> {tour.calificacion}</p>
                   <Button 

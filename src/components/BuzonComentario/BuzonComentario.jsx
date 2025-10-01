@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Swal from 'sweetalert2';
 import '../BuzonComentario/BuzonComentario.css'
 import ServicesComentarios from '../../services/ServicesComentarios';
 import ServicesTours from '../../services/ServicesTours';
 import ServicesPymes from '../../services/ServicesPymes';
 import { useNavigate } from "react-router-dom";
+import { motion, useInView } from 'framer-motion'
 import ReactStars from "react-stars";
 
 function BuzonComentario() {
@@ -15,6 +16,10 @@ function BuzonComentario() {
   const [calificacion, setCalificacion] = useState(0);
   const usuarioEnSesion = JSON.parse(sessionStorage.getItem("usuarioLogueado"))
   const navegar = useNavigate()
+  
+const animacionRef = useRef(null)
+const isInView = useInView(animacionRef, { once: true, margin: "-100px" }) 
+// margin es para que se active un poco antes de estar en encima
 
   useEffect(() => {
     const traerComentarios = async () => {
@@ -36,7 +41,7 @@ function BuzonComentario() {
 const actualizarCalificacionTour = async (tourId, nuevaCalificacion, comentariosActuales, toursActuales) => {
   const comentariosTour = comentariosActuales
     .filter(c =>String(c.tour) ===String(tourId))
-    .map(c => Number(c.calificacion));
+    .map(c => Number(c.calificacion)); // OJO number suma, string concatena, siempre poner numer para las sumas
 
   const todasLasCalificaciones = [...comentariosTour, nuevaCalificacion];
   const suma = todasLasCalificaciones.reduce((acc, curr) => acc + curr, 0); //acumulador de calfi. + califi. axctual
@@ -49,7 +54,7 @@ const actualizarCalificacionTour = async (tourId, nuevaCalificacion, comentarios
       ...tourAActualizar,
       calificacion: nuevoPromedio.toFixed(1) + "/5" // añadir /5 despues de la calificacion
     };
-    await ServicesTours.putTour(tourActualizado, tourId); //actulizar
+    await ServicesTours.putTour(tourActualizado, tourId); //actualizar
     return tourActualizado;
   }
 
@@ -163,7 +168,15 @@ const actualizarCalificacionPyme = async (pymeId, toursActualizados) => {
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   return (
       <div className="container mt-4">
-        <h1>Experiencias de viajeros</h1>
+         <motion.div
+                ref={animacionRef}
+                className="animacion"
+                initial={{ opacity: 0, x: -100 }}  // empieza oculto y desplazado a la izquierda
+                animate={isInView ? { opacity: 1, x: 0 } : {}} // cuando entra en vista, aparece
+                transition={{ duration: 0.8, ease: "easeOut" }} // suavidad
+              >
+                <h1>Experiencias de viajeros</h1>
+              </motion.div>
 
         <div className="row">
           {Comentarios.map((comentario) => (

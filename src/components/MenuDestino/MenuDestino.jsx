@@ -144,7 +144,7 @@ useEffect(() => {
                     <li><strong>Duración:</strong> {tour.duracion}</li>
                     <li><strong>Precio:</strong> ₡{tour.precio}</li>
                     <li><strong>Póliza:</strong> {tour.poliza}</li>
-                    <li><strong>Incluye:</strong> {tour.incluye}</li>
+                    <li><strong>Incluye:</strong> {tour.incluye.join(", ")}</li>
                     <li><strong>Punto de partida:</strong> {tour.punto_partida}</li>
                     <li><strong>Calificación:</strong> {tour.calificacion}</li>
                 </ul>
