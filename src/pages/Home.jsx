@@ -6,6 +6,7 @@ import MenuPymes from '../components/MenuPymes/MenuPymes'
 import RegisterBar from '../components/RegisterBar/RegisterBar'
 import MenuEmprendedor from '../components/MenuEmprendedor/MenuEmprendedor'
 import BuzonComentario from '../components/BuzonComentario/BuzonComentario'
+import Footer from '../components/Footer/Footer'
 
 function Home() {
   return (
@@ -35,6 +36,7 @@ function Home() {
             <section id='comentarios'>
             <BuzonComentario />
             </section>
+            <Footer />
 
 
     </div>

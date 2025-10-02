@@ -109,7 +109,7 @@ function PanelEmprendedor() {
 
             await ServicesEmprendedor.putEmprendedores(emprendedorActualizado, emprendedorEditando.id);
 
-            Swal.fire("¡Éxito!", "Emprendedor actualizado correctamente. 🎉", "success");
+            Swal.fire("¡Éxito!", "Emprendedor actualizado correctamente.", "success");
             setShowEditModal(false);
             
             //actualizar estado local
@@ -159,7 +159,7 @@ function PanelEmprendedor() {
                 <hr />
                 
                 <div className="mb-3">
-                    <label htmlFor="nombreCrear" className="form-label">Nombre del Emprendedor</label>
+                    <label htmlFor="nombreCrear" className="label-standard">Nombre del Emprendedor</label>
                     <input 
                         type="text" 
                         className="form-control" 
@@ -170,7 +170,7 @@ function PanelEmprendedor() {
                 </div>
 
                 <div className="mb-3">
-                    <label htmlFor="historiaCrear" className="form-label">Historia</label>
+                    <label htmlFor="historiaCrear" className="label-standard">Historia</label>
                     <textarea 
                         className="form-control"
                         id="historiaCrear"
@@ -180,7 +180,7 @@ function PanelEmprendedor() {
                 </div>
 
                 <div className="mb-3">
-                    <label htmlFor="fileInputCrear" className="form-label">Imagen</label>
+                    <label htmlFor="fileInputCrear" className="label-standard">Imagen</label>
                     <input 
                         type="file" 
                         accept="image/*" 

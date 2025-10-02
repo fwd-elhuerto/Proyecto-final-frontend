@@ -3,22 +3,18 @@ import Swal from 'sweetalert2';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import ServicesDestinos from '../../../services/ServicesDestinos';
-// Asegúrate de tener un archivo ServicesDestinos.js con get, post, put, delete.
+
 
 function PanelDestino() {
-    // --- ESTADOS PARA LA LISTA Y EDICIÓN ---
     const [Destinos, setDestinos] = useState([]);
     const [showEditModal, setShowEditModal] = useState(false);
     const [destinoEditando, setDestinoEditando] = useState(null); 
     const [imagenFile, setImagenFile] = useState(null); // Archivo para la edición
-
-    // --- ESTADOS PARA LA CREACIÓN (FORMULARIO AL INICIO) ---
     const [nombre, setNombre] = useState('');
     const [descripcion, setDescripcion] = useState('');
-    // Usaremos un input de tipo file directamente para la imagen principal del POST
     const [nuevaImagenFile, setNuevaImagenFile] = useState(null); 
 
-    // --- Lógica de Carga de Datos (READ) ---
+    // get
     useEffect(() => {
         traerDestinos();
     }, []);
@@ -33,7 +29,7 @@ function PanelDestino() {
         }
     };
 
-    // --- Lógica de Cloudinary ---
+    // cloudinary
     const subirImagen = async (file) => {
         const data = new FormData();
         data.append("file", file);
@@ -47,7 +43,7 @@ function PanelDestino() {
         return result.secure_url;
     };
 
-    // --- Lógica de CREACIÓN (POST) ---
+    // post
     const handleCrearDestino = async () => {
         if (!nombre.trim() || !descripcion.trim()) {
             Swal.fire("Error", "El nombre y la descripción son obligatorios.", "error");
@@ -59,10 +55,7 @@ function PanelDestino() {
         }
 
         try {
-            // 1. Subir la imagen a Cloudinary
             const imagenUrl = await subirImagen(nuevaImagenFile);
-            
-            // 2. Crear el objeto final para guardar
             const destinoParaGuardar = {
                 nombre,
                 descripcion,
@@ -70,26 +63,22 @@ function PanelDestino() {
                 otrasImg: [] // Inicializar array de otras imágenes
             };
 
-            // 3. Llamar al servicio de creación (POST)
             const destinoCreado = await ServicesDestinos.postDestino(destinoParaGuardar);
 
-            Swal.fire("¡Éxito!", "Destino creado correctamente. 🎉", "success");
-            
-            // 4. Actualizar el estado local y limpiar formulario
+            Swal.fire("¡Éxito!", "Destino creado correctamente.", "success");       
+            // actualizar el estado local y limpiar formulario
             setDestinos([...Destinos, destinoCreado]);
             setNombre(''); 
             setDescripcion('');
             setNuevaImagenFile(null);
-            // Esto limpia el input de archivo, pero a veces requiere una clave o un reset manual en el DOM
             document.getElementById('fileInputCrear').value = ''; 
-
         } catch (error) {
             console.error("Error al crear el destino:", error);
             Swal.fire("Error", "Ocurrió un problema al crear el destino.", "error");
         }
     };
 
-    // --- Lógica de Edición (UPDATE) ---
+    // put
     const editarDestino = (destino) => {
         setDestinoEditando({ ...destino });
         setImagenFile(null); // Limpiar el archivo al abrir
@@ -105,35 +94,28 @@ function PanelDestino() {
         try {
             let imagenUrl = destinoEditando.imagen;
 
-            // 1. Subir la nueva imagen si se seleccionó una
+            //Subir la nueva imagen si se seleccionó una
             if (imagenFile) {
                 imagenUrl = await subirImagen(imagenFile);
             }
             
-            // 2. Crear el objeto final actualizado
             const destinoActualizado = {
                 ...destinoEditando,
                 imagen: imagenUrl,
             };
-
-            // 3. Llamar al servicio de actualización
             await ServicesDestinos.putDestino(destinoActualizado, destinoEditando.id);
-
             Swal.fire("¡Éxito!", "Destino actualizado correctamente. 🎉", "success");
             setShowEditModal(false);
-            
-            // 4. Actualizar el estado local
             setDestinos(prevDestinos => 
                 prevDestinos.map(d => (d.id === destinoActualizado.id ? destinoActualizado : d))
             );
-
         } catch (error) {
             console.error("Error al actualizar el destino:", error);
             Swal.fire("Error", "Ocurrió un problema al guardar los cambios.", "error");
         }
     };
 
-    // --- Lógica de Eliminación (DELETE) ---
+    // delete
     const eliminarDestino = async (id) => {
         const result = await Swal.fire({
             title: "¿Estás seguro?",
@@ -158,18 +140,18 @@ function PanelDestino() {
         }
     };
     
-    // --- Renderizado ---
+//----------------------------------------------------------------------------------------------------------------------------------
     return (
         <div className="container mt-5">
             <h1>Panel de Destinos</h1>
 
-            {/* SECCIÓN DE AGREGAR NUEVO DESTINO (Formulario al inicio) */}
+            {/* form */}
             <div className="card shadow mb-5 p-4">
                 <h2>Agregar Nuevo Destino</h2>
                 <hr />
                 
                 <div className="mb-3">
-                    <label htmlFor="nombreCrear" className="form-label">Nombre del Destino</label>
+                    <label htmlFor="nombreCrear" className="label-standard">Nombre del Destino</label>
                     <input 
                         type="text" 
                         className="form-control" 
@@ -180,7 +162,7 @@ function PanelDestino() {
                 </div>
 
                 <div className="mb-3">
-                    <label htmlFor="descripcionCrear" className="form-label">Descripción</label>
+                    <label htmlFor="descripcionCrear" className="label-standard">Descripción</label>
                     <textarea 
                         className="form-control"
                         id="descripcionCrear"
@@ -190,7 +172,7 @@ function PanelDestino() {
                 </div>
 
                 <div className="mb-3">
-                    <label htmlFor="fileInputCrear" className="form-label">Imagen Principal</label>
+                    <label htmlFor="fileInputCrear" className="label-standard">Imagen Principal</label>
                     <input 
                         type="file" 
                         accept="image/*" 
@@ -205,7 +187,7 @@ function PanelDestino() {
                 </button>
             </div>
 
-            {/* SECCIÓN DE LISTADO Y ADMINISTRACIÓN DE DESTINOS */}
+            {/*administración */}
             <h2>Destinos Registrados</h2>
             <hr />
             <div className="row">
@@ -243,7 +225,7 @@ function PanelDestino() {
                 )}
             </div>
 
-            {/* --- MODAL DE EDICIÓN (Se mantiene con modal para no sobrecargar la pantalla) --- */}
+            {/* modal de edicion */}
             <Modal show={showEditModal} onHide={() => setShowEditModal(false)}>
                 <Modal.Header closeButton>
                     <Modal.Title>Editar Destino: {destinoEditando?.nombre}</Modal.Title>

@@ -1,1 +1,1 @@
-Tecnologias usadas: react-stars-component, Framer Motion, bootstrap
+Tecnologias usadas: react-stars-component, Framer Motion, bootstrap, react-icons

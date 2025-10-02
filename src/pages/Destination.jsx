@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from '../components/Header/Header'
 import MenuDestino from '../components/MenuDestino/MenuDestino'
+import Footer from '../components/Footer/Footer'
 
 function Destination() {
   return (
@@ -10,6 +11,7 @@ function Destination() {
       <br />
       <br />
       <MenuDestino />
+      <Footer />
 
     </div>
   )

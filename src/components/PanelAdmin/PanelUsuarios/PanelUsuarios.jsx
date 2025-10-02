@@ -154,7 +154,7 @@ function PanelUsuarios() {
                 <hr />
                 
                 <div className="mb-3">
-                    <label htmlFor="nombreCrear" className="form-label">Nombre</label>
+                    <label htmlFor="nombreCrear" className="label-standard">Nombre</label>
                     <input 
                         type="text" 
                         className="form-control" 
@@ -165,7 +165,7 @@ function PanelUsuarios() {
                 </div>
 
                 <div className="mb-3">
-                    <label htmlFor="emailCrear" className="form-label">Email</label>
+                    <label htmlFor="emailCrear" className="label-standard">Email</label>
                     <input 
                         type="email" 
                         className="form-control" 
@@ -176,7 +176,7 @@ function PanelUsuarios() {
                 </div>
                 
                 <div className="mb-3">
-                    <label htmlFor="passwordCrear" className="form-label">Contraseña</label>
+                    <label htmlFor="passwordCrear" className="label-standard">Contraseña</label>
                     <input 
                         type="password" 
                         className="form-control" 
@@ -187,7 +187,7 @@ function PanelUsuarios() {
                 </div>
 
                 <div className="mb-3">
-                    <label htmlFor="tipoUsuarioCrear" className="form-label">Tipo de Usuario</label>
+                    <label htmlFor="tipoUsuarioCrear" className="label-standard">Tipo de Usuario</label>
                     <select
                         className="form-select"
                         id="tipoUsuarioCrear"

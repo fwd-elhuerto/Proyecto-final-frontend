@@ -79,7 +79,7 @@ function AdminTours() {
 
 
                     <div className="mb-3">
-                        <label htmlFor="nombre" className="form-label">Nombre del Tour</label>
+                        <label htmlFor="nombre" className="label-standard">Nombre del Tour</label>
                         <input 
                             type="text" 
                             className="form-control"  // form control hace el input mas grande y con espaciado
@@ -88,7 +88,7 @@ function AdminTours() {
                     </div>
 
                     <div className="mb-3">
-                        <label htmlFor="destinoId" className="form-label">Destino</label>
+                        <label htmlFor="destinoId" className="label-standard">Destino</label>
                         <select 
                             className="form-select" 
                             value={destinoId} 
@@ -104,7 +104,7 @@ function AdminTours() {
                     </div>
                     
                     <div className="mb-3">
-                        <label htmlFor="descripcion" className="form-label">Descripción</label>
+                        <label htmlFor="descripcion" className="label-standard">Descripción</label>
                         <textarea 
                             className="form-control"
                             value={descripcion} 
@@ -113,7 +113,7 @@ function AdminTours() {
                     </div>
 
                     <div className="mb-3">
-                        <label htmlFor="duracion" className="form-label">Duración (ej: 8 horas)</label>
+                        <label htmlFor="duracion" className="label-standard">Duración (ej: 8 horas)</label>
                         <input 
                             type="text" 
                             className="form-control" 
@@ -122,7 +122,7 @@ function AdminTours() {
                     </div>
 
                     <div className="mb-3">
-                        <label htmlFor="precio" className="form-label">Precio (₡)</label>
+                        <label htmlFor="precio" className="label-standard">Precio (₡)</label>
                         <input 
                             type="number" 
                             className="form-control"
@@ -130,7 +130,7 @@ function AdminTours() {
                     </div>
 
                     <div className="mb-3">
-                        <label htmlFor="poliza" className="form-label">Póliza</label>
+                        <label htmlFor="poliza" className="label-standard">Póliza</label>
                         <input 
                             type="text" 
                             className="form-control"
@@ -139,7 +139,7 @@ function AdminTours() {
                     </div>
                     
                     <div className="mb-3">
-                        <label htmlFor="incluye" className="form-label">Incluye</label>
+                        <label htmlFor="incluye" className="label-standard">Incluye</label>
                         <input 
                             type="text" 
                             className="form-control" 
@@ -149,7 +149,7 @@ function AdminTours() {
                     </div>
                     
                     <div className="mb-3">
-                        <label htmlFor="puntoPartida" className="form-label">Punto de Partida</label>
+                        <label htmlFor="puntoPartida" className="label-standard">Punto de Partida</label>
                         <input 
                             type="text" 
                             className="form-control"
