@@ -49,38 +49,6 @@
       "fecha": "2025-09-17",
       "tour": "33",
       "calificacion": "4"
-    },
-    {
-      "id": "a3ed",
-      "usuario": "luis",
-      "contenido": "holaaa",
-      "fecha": "1/10/2025, 8:47:11 a. m.",
-      "tour": "32",
-      "calificacion": "4"
-    },
-    {
-      "id": "da1d",
-      "usuario": "luis",
-      "contenido": "malo",
-      "fecha": "1/10/2025, 11:48:36 a. m.",
-      "tour": "31",
-      "calificacion": "1"
-    },
-    {
-      "id": "a475",
-      "usuario": "luis",
-      "contenido": "malandro",
-      "fecha": "1/10/2025, 12:00:31 p. m.",
-      "tour": "31",
-      "calificacion": "1"
-    },
-    {
-      "id": "4fe3",
-      "usuario": "luis",
-      "contenido": "ffffff",
-      "fecha": "1/10/2025, 3:44:57 p. m.",
-      "tour": "33",
-      "calificacion": "5"
     }
   ],
   "destinos": [

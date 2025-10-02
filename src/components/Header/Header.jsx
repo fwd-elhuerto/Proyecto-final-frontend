@@ -123,13 +123,22 @@ function Header() {
       <Link to="/Home">
         <img className="imgTitulo" src={titulo} alt="Isleño" />
       </Link>
-
-      <nav className="nav-links">
-        <button className="btn-head" onClick={() => irASeccion("emprendedor")}>Conoce emprendedores</button>
-        <button className="btn-head" onClick={() => irASeccion("comentarios")}>Experiencias de usuarios</button>
-        <button className="btn-head" onClick={() => irASeccion("destinos")}>Destinos</button>
-        <button className="btn-head" onClick={() => irASeccion("empresas")}>Pymes</button>
-      </nav>
+      {location.pathname === "/Home" && (
+        <nav className="nav-links">
+          <button className="btn-head" onClick={() => irASeccion("emprendedor")}>
+            Conoce emprendedores
+          </button>
+          <button className="btn-head" onClick={() => irASeccion("comentarios")}>
+            Experiencias de usuarios
+          </button>
+          <button className="btn-head" onClick={() => irASeccion("destinos")}>
+            Destinos
+          </button>
+          <button className="btn-head" onClick={() => irASeccion("empresas")}>
+            Pymes
+          </button>
+        </nav>
+      )}
 
       <div className="search-container">
         <input

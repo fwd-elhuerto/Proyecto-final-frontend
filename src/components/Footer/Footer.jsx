@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-/* import { FaWhatsapp } from "react-icons/fa"; */
+import { FaWhatsapp } from "react-icons/fa";
 import "./Footer.css";
 
 function Footer() {
@@ -27,7 +27,7 @@ function Footer() {
               rel="noopener noreferrer"
               className="whatsapp-link"
             >
-             {/*  <FaWhatsapp className="whatsapp-icon" /> */}
+              <FaWhatsapp className="whatsapp-icon" />
               <span className="ms-2">Contáctanos</span>
             </a>
           </Col>

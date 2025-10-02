@@ -164,6 +164,30 @@ const actualizarCalificacionPyme = async (pymeId, toursActualizados) => {
 
       Swal.fire("¡Listo!", "Comentario agregado y calificaciones actualizadas.", "success");
       }
+
+      // función para eliminar comentario
+      const eliminarComentario = async (id) => {
+        const result = await Swal.fire({
+          title: "¿Estás seguro?",
+          text: "Eliminarás tu comentario permanentemente",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Sí, eliminar",
+          cancelButtonText: "Cancelar"
+        });
+
+        if (result.isConfirmed) {
+          try {
+            await ServicesComentarios.deleteComentarios(id);
+            setComentarios(Comentarios.filter(c => c.id !== id));
+            Swal.fire("Eliminado", "Tu comentario ha sido eliminado", "success");
+          } catch (error) {
+            Swal.fire("Error", "No se pudo eliminar el comentario", "error");
+          }
+        }
+      };
   
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   return (
@@ -181,13 +205,23 @@ const actualizarCalificacionPyme = async (pymeId, toursActualizados) => {
         <div className="row">
           {Comentarios.map((comentario) => (
             <div key={comentario.id} className="col-md-4 col-sm-6 mb-4">
-              <div className="comentario_card">
+             <div className="comentario_card">
                 <h3 className="comentario_titulo">{comentario.usuario}</h3>
                 <p className="comentario_desc">{comentario.contenido}</p>
                 <p className="comentario_desc">
                   <strong>Tour: </strong>{obtenerNombreTour(comentario.tour)}
                 </p>
                 <p className="comentario_desc">Calificación 🌟{comentario.calificacion}</p>
+
+                {/* Botón solo si el comentario es del usuario logueado */}
+                {usuarioEnSesion && comentario.usuario === usuarioEnSesion.Nombre && (
+                  <button
+                    className="btn btn-danger mt-2"
+                    onClick={() => eliminarComentario(comentario.id)}
+                  >
+                    Eliminar
+                  </button>
+                )}
               </div>
             </div>
           ))}
